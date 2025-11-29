@@ -39,6 +39,10 @@ const std::string& Order::getCreatedAt() const {
     return createdAt;
 }
 
+void Order::setId(int newId) {
+    id = newId;
+}
+
 void Order::setStatus(OrderStatus newStatus) {
     status = newStatus;
 }

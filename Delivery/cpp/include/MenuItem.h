@@ -20,6 +20,7 @@ public:
     const std::string& getDescription() const;
     double getPrice() const;
 
+    void setId(int newId);
     void setName(const std::string& name);
     void setDescription(const std::string& desc);
     void setPrice(double price);

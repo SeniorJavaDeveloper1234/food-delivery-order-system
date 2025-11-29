@@ -32,6 +32,11 @@ bool Courier::isAvailable() const {
     return available;
 }
 
+void Courier::setId(int newId) {
+    id = newId;
+}
+
+
 void Courier::setFirstName(const std::string& name) {
     firstName = name;
 }

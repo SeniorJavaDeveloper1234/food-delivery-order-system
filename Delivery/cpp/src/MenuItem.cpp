@@ -27,6 +27,10 @@ double MenuItem::getPrice() const {
     return price;
 }
 
+void MenuItem::setId(int newId) {
+    id = newId; 
+}
+
 void MenuItem::setName(const std::string& newName) {
     name = newName;
 }

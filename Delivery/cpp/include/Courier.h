@@ -23,6 +23,7 @@ public:
     const std::string& getPhone() const;
     bool isAvailable() const;
 
+    void setId(int newId);
     void setFirstName(const std::string& firstName);
     void setLastName(const std::string& lastName);
     void setPhone(const std::string& phone);

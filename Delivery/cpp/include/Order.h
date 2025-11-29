@@ -37,6 +37,7 @@ public:
     const std::string& getCreatedAt() const;
     double getTotalPrice() const;
 
+    void setId(int newId);
     void setCourierId(int courierId);
     void setStatus(OrderStatus status);
 

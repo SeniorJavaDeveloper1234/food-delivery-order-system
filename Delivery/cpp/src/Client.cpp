@@ -23,6 +23,10 @@ const std::string& Client::getPhone() const {
     return phone;
 }
 
+void Cliernt::setId(int newId) { 
+    id = newId; 
+}
+
 void Client::setFirstName(const std::string& name) {
     firstName = name;
 }
