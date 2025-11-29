@@ -33,4 +33,6 @@ public:
 
 
     std::vector<Order> getCourierOrders(int courierId);
+
+    std::string getCurrentTime() const;
 };

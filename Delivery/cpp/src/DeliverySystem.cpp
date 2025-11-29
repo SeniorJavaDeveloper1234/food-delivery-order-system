@@ -27,8 +27,7 @@ OrderRepository* DeliverySystem::orders() {
 }
 
 
-Order* DeliverySystem::createOrder(int clientId,
-    const std::vector<int>& itemIds)
+Order* DeliverySystem::createOrder(int clientId, const std::vector<int>& itemIds)
 {
 
     Courier* courier = courierRepo->findAvailableCourier();
@@ -52,7 +51,7 @@ Order* DeliverySystem::createOrder(int clientId,
         courier->getId(),
         items,
         OrderStatus::Pending,
-        "2025-01-01 12:00"
+        getCurrentTime()
     );
 
     orderRepo->add(order);
@@ -105,4 +104,20 @@ std::vector<Order> DeliverySystem::getClientOrders(int clientId)
 std::vector<Order> DeliverySystem::getCourierOrders(int courierId)
 {
     return orderRepo->findByCourierId(courierId);
+}
+
+std::string DeliverySystem::getCurrentTime() const
+{
+    using namespace std::chrono;
+
+
+    auto now = system_clock::now();
+    std::time_t now_time = system_clock::to_time_t(now);
+
+    std::tm* local = std::localtime(&now_time);
+
+    std::ostringstream oss;
+    oss << std::put_time(local, "%Y-%m-%d %H:%M:%S");
+
+    return oss.str();
 }
