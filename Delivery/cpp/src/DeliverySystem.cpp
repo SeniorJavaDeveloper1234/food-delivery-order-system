@@ -1,4 +1,6 @@
 #include "DeliverySystem.h"
+#include "OrderItem.h"
+#include <vector>
 
 DeliverySystem::DeliverySystem()
 {
@@ -25,50 +27,82 @@ OrderRepository* DeliverySystem::orders() {
 }
 
 
-Client* DeliverySystem::registerClient(const std::string& firstName,
-    const std::string& lastName,
-    const std::string& phone)
-{
-    Client c(0, firstName, lastName, phone); 
-    clientRepo->add(c);
-    return clientRepo->findByPhone(phone);
-}
-
-MenuItem* DeliverySystem::addMenuItem(const std::string& name,
-    const std::string& description,
-    double price)
-{
-    MenuItem item(0, name, description, price);
-    menuRepo->add(item);
-    return menuRepo->findByName(name);
-}
-
 Order* DeliverySystem::createOrder(int clientId,
-    const std::vector<OrderItem>& items)
+    const std::vector<int>& itemIds)
 {
+
     Courier* courier = courierRepo->findAvailableCourier();
     if (!courier)
-        return nullptr; 
+        return nullptr;
 
     courier->setAvailable(false);
 
-    Order order(0, clientId, courier->getId(), items,
-        OrderStatus::Pending, getCurrentTime());
+    std::vector<OrderItem> items;
+    for (int id : itemIds) {
+        MenuItem* mi = menuRepo->findById(id);
+        if (mi) {
+            OrderItem oi(mi->getId(), 1, mi->getPrice());
+            items.push_back(oi);
+        }
+    }
+
+    Order order(
+        0,
+        clientId,
+        courier->getId(),
+        items,
+        OrderStatus::Pending,
+        "2025-01-01 12:00"
+    );
 
     orderRepo->add(order);
 
-    return orderRepo->findByClientId(clientId).back();
+    return &orderRepo->findByClientId(clientId).back();
 }
 
-bool DeliverySystem::updateOrderStatus(int orderId, OrderStatus status) {
-    return orderRepo->updateStatus(orderId, status);
-}
 
-void DeliverySystem::freeCourier(int courierId) {
-    courierRepo->setCourierAvailability(courierId, true);
-}
-
-std::string DeliverySystem::getCurrentTime() const
+bool DeliverySystem::completeOrder(int orderId)
 {
-    return "2025-01-01 12:00";
+    Order* order = orderRepo->findById(orderId);
+    if (!order) return false;
+
+    order->setStatus(OrderStatus::Completed);
+    courierRepo->setCourierAvailability(order->getCourierId(), true);
+
+    return true;
+}
+
+
+bool DeliverySystem::cancelOrder(int orderId)
+{
+    Order* order = orderRepo->findById(orderId);
+    if (!order) return false;
+
+    order->setStatus(OrderStatus::Cancelled);
+    courierRepo->setCourierAvailability(order->getCourierId(), true);
+
+    return true;
+}
+
+
+double DeliverySystem::calculateOrderTotal(const std::vector<int>& itemIds)
+{
+    double total = 0;
+    for (int id : itemIds) {
+        MenuItem* mi = menuRepo->findById(id);
+        if (mi)
+            total += mi->getPrice();
+    }
+    return total;
+}
+
+
+std::vector<Order> DeliverySystem::getClientOrders(int clientId)
+{
+    return orderRepo->findByClientId(clientId);
+}
+
+std::vector<Order> DeliverySystem::getCourierOrders(int courierId)
+{
+    return orderRepo->findByCourierId(courierId);
 }
