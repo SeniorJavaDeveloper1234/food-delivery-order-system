@@ -1,9 +1,13 @@
 #include "OrderItem.h"
 
-OrderItem::OrderItem(int menuItemId, int quantity, double price)
+OrderItem::OrderItem(int menuItemId,
+    const std::string& name,
+    double unitPrice,
+    int quantity)
     : menuItemId(menuItemId),
-    quantity(quantity),
-    price(price)
+    name(name),
+    unitPrice(unitPrice),
+    quantity(quantity)
 {
 }
 
@@ -11,22 +15,22 @@ int OrderItem::getMenuItemId() const {
     return menuItemId;
 }
 
+const std::string& OrderItem::getName() const {
+    return name;
+}
+
+double OrderItem::getUnitPrice() const {
+    return unitPrice;
+}
+
 int OrderItem::getQuantity() const {
     return quantity;
 }
 
-double OrderItem::getPrice() const {
-    return price;
+double OrderItem::getTotalPrice() const {
+    return unitPrice * quantity;
 }
 
-void OrderItem::setQuantity(int q) {
-    quantity = q;
-}
-
-void OrderItem::setPrice(double p) {
-    price = p;
-}
-
-double OrderItem::getTotal() const {
-    return price * quantity;
+void OrderItem::setQuantity(int quantity) {
+    this->quantity = quantity;
 }

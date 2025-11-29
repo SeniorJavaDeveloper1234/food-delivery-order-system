@@ -3,8 +3,9 @@
 Client::Client(int id,
     const std::string& firstName,
     const std::string& lastName,
-    const std::string& phone)
-    : id(id), firstName(firstName), lastName(lastName), phone(phone) {
+    const std::string& phone, 
+    const std::string& address)
+    : id(id), firstName(firstName), lastName(lastName), phone(phone), address(address){
 }
 
 int Client::getId() const {
@@ -23,8 +24,13 @@ const std::string& Client::getPhone() const {
     return phone;
 }
 
-void Cliernt::setId(int newId) { 
-    id = newId; 
+const std::string& Client::getAddress() const {
+    return address;
+}
+
+
+void Client::setId(int newId) {
+    id = newId;
 }
 
 void Client::setFirstName(const std::string& name) {
@@ -38,3 +44,8 @@ void Client::setLastName(const std::string& name) {
 void Client::setPhone(const std::string& ph) {
     phone = ph;
 }
+
+void Client::setAddress(const std::string& adr) {
+    address = adr;
+}
+

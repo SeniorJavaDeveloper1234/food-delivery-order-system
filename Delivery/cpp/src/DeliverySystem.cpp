@@ -1,6 +1,8 @@
 #include "DeliverySystem.h"
 #include "OrderItem.h"
-#include <vector>
+#include "MenuItem.h"
+#include "Courier.h"
+#include <ctime>
 
 DeliverySystem::DeliverySystem()
 {
@@ -10,26 +12,24 @@ DeliverySystem::DeliverySystem()
     orderRepo = std::make_unique<OrderRepository>();
 }
 
-ClientRepository* DeliverySystem::clients() {
+ClientRepository* DeliverySystem::clients() const {
     return clientRepo.get();
 }
 
-CourierRepository* DeliverySystem::couriers() {
+CourierRepository* DeliverySystem::couriers() const {
     return courierRepo.get();
 }
 
-MenuRepository* DeliverySystem::menu() {
+MenuRepository* DeliverySystem::menu() const {
     return menuRepo.get();
 }
 
-OrderRepository* DeliverySystem::orders() {
+OrderRepository* DeliverySystem::orders() const {
     return orderRepo.get();
 }
 
-
 Order* DeliverySystem::createOrder(int clientId, const std::vector<int>& itemIds)
 {
-
     Courier* courier = courierRepo->findAvailableCourier();
     if (!courier)
         return nullptr;
@@ -37,103 +37,88 @@ Order* DeliverySystem::createOrder(int clientId, const std::vector<int>& itemIds
     courier->setAvailable(false);
 
     std::vector<OrderItem> items;
-    for (int id : itemIds) {
-        MenuItem* mi = menuRepo->findById(id);
+    for (int menuId : itemIds)
+    {
+        MenuItem* mi = menuRepo->findById(menuId);
         if (mi) {
-            OrderItem oi(mi->getId(), 1, mi->getPrice());
-            items.push_back(oi);
+            items.emplace_back(
+                mi->getId(),
+                mi->getName(),
+                mi->getPrice(),
+                1
+            );
         }
     }
 
     Order order(
-        0,
+        0,             
         clientId,
-        courier->getId(),
         items,
-        OrderStatus::Pending,
         getCurrentTime()
     );
 
+    order.setCourierId(courier->getId());
+
     orderRepo->add(order);
 
-    return &orderRepo->findByClientId(clientId).back();
-}
+    auto& list = orderRepo->findByClientId(clientId);
+    if (list.empty())
+        return nullptr;
 
+    return const_cast<Order*>(&list.back());
+}
 
 bool DeliverySystem::completeOrder(int orderId)
 {
     Order* order = orderRepo->findById(orderId);
-    if (!order) return false;
+    if (!order)
+        return false;
 
     order->setStatus(OrderStatus::Completed);
     courierRepo->setCourierAvailability(order->getCourierId(), true);
-
     return true;
 }
-
 
 bool DeliverySystem::cancelOrder(int orderId)
 {
     Order* order = orderRepo->findById(orderId);
-    if (!order) return false;
+    if (!order)
+        return false;
 
     order->setStatus(OrderStatus::Cancelled);
     courierRepo->setCourierAvailability(order->getCourierId(), true);
-
     return true;
 }
 
-
-double DeliverySystem::calculateOrderTotal(const std::vector<int>& itemIds)
+double DeliverySystem::calculateOrderTotal(const std::vector<int>& itemIds) const
 {
-    double total = 0;
-    for (int id : itemIds) {
-        MenuItem* mi = menuRepo->findById(id);
+    double total = 0.0;
+
+    for (int menuId : itemIds) {
+        MenuItem* mi = menuRepo->findById(menuId);
         if (mi)
             total += mi->getPrice();
     }
+
     return total;
 }
 
-
-std::vector<Order> DeliverySystem::getClientOrders(int clientId)
+std::vector<Order> DeliverySystem::getClientOrders(int clientId) const
 {
     return orderRepo->findByClientId(clientId);
 }
 
-std::vector<Order> DeliverySystem::getCourierOrders(int courierId)
+std::vector<Order> DeliverySystem::getCourierOrders(int courierId) const
 {
     return orderRepo->findByCourierId(courierId);
 }
 
 std::string DeliverySystem::getCurrentTime() const
 {
-    using namespace std::chrono;
+    std::time_t now = std::time(nullptr);
+    std::tm* t = std::localtime(&now);
 
-
-    auto now = system_clock::now();
-    std::time_t now_time = system_clock::to_time_t(now);
-
-    std::tm* local = std::localtime(&now_time);
-
-    std::ostringstream oss;
-    oss << std::put_time(local, "%Y-%m-%d %H:%M:%S");
-
-    return oss.str();
-}
-
-void DeliverySystem::loadAll()
-{
-    JsonStorage::loadClients(*clientRepo, "data/clients.json");
-    JsonStorage::loadCouriers(*courierRepo, "data/couriers.json");
-    JsonStorage::loadMenu(*menuRepo, "data/menu.json");
-    JsonStorage::loadOrders(*orderRepo, "data/orders.json");
-}
-
-void DeliverySystem::saveAll() const
-{
-    JsonStorage::saveClients(*clientRepo, "data/clients.json");
-    JsonStorage::saveCouriers(*courierRepo, "data/couriers.json");
-    JsonStorage::saveMenu(*menuRepo, "data/menu.json");
-    JsonStorage::saveOrders(*orderRepo, "data/orders.json");
+    char buf[32];
+    std::strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", t);
+    return std::string(buf);
 }

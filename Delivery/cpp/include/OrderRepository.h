@@ -8,11 +8,13 @@ private:
     std::vector<Order> orders;
     int nextId = 1;
 
+    mutable std::vector<Order> tempClientResults;
+    mutable std::vector<Order> tempCourierResults;
+
 public:
     OrderRepository() = default;
 
     void add(const Order& order) override;
-
     bool remove(int id) override;
 
     Order* findById(int id) override;
@@ -20,7 +22,6 @@ public:
 
     bool updateStatus(int id, OrderStatus newStatus);
 
-    std::vector<Order> findByClientId(int clientId) const;
-
-    std::vector<Order> findByCourierId(int courierId) const;
+    const std::vector<Order>& findByClientId(int clientId) const;
+    const std::vector<Order>& findByCourierId(int courierId) const;
 };
