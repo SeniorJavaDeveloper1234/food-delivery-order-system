@@ -121,3 +121,19 @@ std::string DeliverySystem::getCurrentTime() const
 
     return oss.str();
 }
+
+void DeliverySystem::loadAll()
+{
+    JsonStorage::loadClients(*clientRepo, "data/clients.json");
+    JsonStorage::loadCouriers(*courierRepo, "data/couriers.json");
+    JsonStorage::loadMenu(*menuRepo, "data/menu.json");
+    JsonStorage::loadOrders(*orderRepo, "data/orders.json");
+}
+
+void DeliverySystem::saveAll() const
+{
+    JsonStorage::saveClients(*clientRepo, "data/clients.json");
+    JsonStorage::saveCouriers(*courierRepo, "data/couriers.json");
+    JsonStorage::saveMenu(*menuRepo, "data/menu.json");
+    JsonStorage::saveOrders(*orderRepo, "data/orders.json");
+}

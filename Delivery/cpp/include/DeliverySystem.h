@@ -4,6 +4,7 @@
 #include "CourierRepository.h"
 #include "MenuRepository.h"
 #include "OrderRepository.h"
+#include "JsonStorage.h"
 
 class DeliverySystem {
 private:
@@ -15,24 +16,21 @@ private:
 public:
     DeliverySystem();
 
+    void loadAll();
+    void saveAll() const;
+
     ClientRepository* clients();
     CourierRepository* couriers();
     MenuRepository* menu();
     OrderRepository* orders();
 
-
     Order* createOrder(int clientId, const std::vector<int>& itemIds);
 
     bool completeOrder(int orderId);
-
     bool cancelOrder(int orderId);
 
     double calculateOrderTotal(const std::vector<int>& itemIds);
 
     std::vector<Order> getClientOrders(int clientId);
-
-
     std::vector<Order> getCourierOrders(int courierId);
-
-    std::string getCurrentTime() const;
 };

@@ -92,7 +92,6 @@ void JsonStorage::loadOrders(OrderRepository& repo, const std::string& filename)
             o["createdAt"]
         );
 
-        // додаткові поля після створення
         order.setCourierId(o["courierId"]);
         order.setStatus(static_cast<OrderStatus>(o["status"]));
 
