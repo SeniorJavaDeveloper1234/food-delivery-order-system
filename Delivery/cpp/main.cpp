@@ -1,11 +1,13 @@
 ﻿#include <iostream>
 #include <vector>
 #include <cstdlib>
+#include <filesystem>
 
 #include "DeliverySystem.h"
 #include "Client.h"
 #include "Courier.h"
 #include "MenuItem.h"
+#include "JsonStorage.h"
 
 int main()
 {
@@ -13,15 +15,32 @@ int main()
 
     DeliverySystem system;
 
-    system.clients()->add(Client(0, "Володимир", "Варгас", "0931112233", "вул. Шевченка 20"));
-    system.clients()->add(Client(0, "Анна", "Петренко", "0975556677", "пр. Свободи 15"));
+    std::filesystem::create_directory("data");
 
-    system.couriers()->add(Courier(0, "Ігор", "Семенов", "0931122334", true));
-    system.couriers()->add(Courier(0, "Марія", "Дяченко", "0509988776", true));
+    JsonStorage::loadClients(*system.clients(), "data/clients.json");
+    JsonStorage::loadCouriers(*system.couriers(), "data/couriers.json");
+    JsonStorage::loadMenu(*system.menu(), "data/menu.json");
+    JsonStorage::loadOrders(*system.orders(), "data/orders.json");
 
-    system.menu()->add(MenuItem(0, "Піцца Маргарита", "Класична італійська піца", 189.0));
-    system.menu()->add(MenuItem(0, "Бургер", "Соковитий бургер з сиром", 140.0));
-    system.menu()->add(MenuItem(0, "Суші Філадельфія", "Лосось, крем-сир", 235.0));
+    if (system.clients()->getAll().empty())
+    {
+        system.clients()->add(Client(0, "John", "Smith", "0931112233", "Main Street 20"));
+        system.clients()->add(Client(0, "Anna", "Brown", "0975556677", "Freedom Avenue 15"));
+
+    }
+
+    if (system.couriers()->getAll().empty())
+    {
+        system.couriers()->add(Courier(0, "Igor", "Petrov", "0931122334", true));
+        system.couriers()->add(Courier(0, "Maria", "Diaz", "0509988776", true));
+    }
+
+    if (system.menu()->getAll().empty())
+    {
+        system.menu()->add(MenuItem(0, "Pizza Margherita", "Classic italian pizza", 189.0));
+        system.menu()->add(MenuItem(0, "Burger", "Juicy beef burger with cheese", 140.0));
+        system.menu()->add(MenuItem(0, "Sushi Philadelphia", "Salmon, cream cheese", 235.0));
+    }
 
     int choice = -1;
 
@@ -102,6 +121,8 @@ int main()
             {
                 std::cout << "✔ Замовлення створено. ID = " << order->getId() << "\n";
                 std::cout << "Сума: " << order->getTotalPrice() << " грн\n";
+
+                JsonStorage::saveOrders(*system.orders(), "data/orders.json");
             }
         }
 
@@ -112,7 +133,10 @@ int main()
             std::cin >> orderId;
 
             if (system.completeOrder(orderId))
+            {
                 std::cout << "✔ Замовлення завершено.\n";
+                JsonStorage::saveOrders(*system.orders(), "data/orders.json");
+            }
             else
                 std::cout << "❌ Замовлення не знайдено.\n";
         }
@@ -124,7 +148,10 @@ int main()
             std::cin >> orderId;
 
             if (system.cancelOrder(orderId))
+            {
                 std::cout << "✔ Замовлення скасовано.\n";
+                JsonStorage::saveOrders(*system.orders(), "data/orders.json");
+            }
             else
                 std::cout << "❌ Замовлення не знайдено.\n";
         }
@@ -151,7 +178,6 @@ int main()
             }
         }
 
-
         else if (choice == 8)
         {
             int courierId;
@@ -175,6 +201,11 @@ int main()
         }
     }
 
-    std::cout << "Вихід із програми.\n";
+    JsonStorage::saveClients(*system.clients(), "data/clients.json");
+    JsonStorage::saveCouriers(*system.couriers(), "data/couriers.json");
+    JsonStorage::saveMenu(*system.menu(), "data/menu.json");
+    JsonStorage::saveOrders(*system.orders(), "data/orders.json");
+
+    std::cout << "Дані збережено. Вихід із програми.\n";
     return 0;
 }

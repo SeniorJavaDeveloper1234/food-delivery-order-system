@@ -101,6 +101,8 @@ void JsonStorage::loadOrders(OrderRepository& repo, const std::string& filename)
 
 void JsonStorage::saveClients(const ClientRepository& repo, const std::string& filename)
 {
+    std::filesystem::create_directories(std::filesystem::path(filename).parent_path());
+
     json j = json::array();
 
     for (const auto& c : repo.getAll())
@@ -114,12 +116,15 @@ void JsonStorage::saveClients(const ClientRepository& repo, const std::string& f
             });
     }
 
-    std::ofstream file(filename);
+    std::ofstream file(filename, std::ios::trunc); 
     file << j.dump(4);
 }
 
+
 void JsonStorage::saveCouriers(const CourierRepository& repo, const std::string& filename)
 {
+    std::filesystem::create_directories(std::filesystem::path(filename).parent_path());
+
     json j = json::array();
 
     for (const auto& c : repo.getAll())
@@ -133,13 +138,15 @@ void JsonStorage::saveCouriers(const CourierRepository& repo, const std::string&
             });
     }
 
-    std::ofstream file(filename);
+    std::ofstream file(filename, std::ios::trunc);
     file << j.dump(4);
 }
 
 
 void JsonStorage::saveMenu(const MenuRepository& repo, const std::string& filename)
 {
+    std::filesystem::create_directories(std::filesystem::path(filename).parent_path());
+
     json j = json::array();
 
     for (const auto& m : repo.getAll())
@@ -152,13 +159,16 @@ void JsonStorage::saveMenu(const MenuRepository& repo, const std::string& filena
             });
     }
 
-    std::ofstream file(filename);
+    std::ofstream file(filename, std::ios::trunc);
     file << j.dump(4);
 }
 
 
+
 void JsonStorage::saveOrders(const OrderRepository& repo, const std::string& filename)
 {
+    std::filesystem::create_directories(std::filesystem::path(filename).parent_path());
+
     json j = json::array();
 
     for (const auto& o : repo.getAll())
@@ -187,6 +197,6 @@ void JsonStorage::saveOrders(const OrderRepository& repo, const std::string& fil
             });
     }
 
-    std::ofstream file(filename);
+    std::ofstream file(filename, std::ios::trunc);
     file << j.dump(4);
 }
