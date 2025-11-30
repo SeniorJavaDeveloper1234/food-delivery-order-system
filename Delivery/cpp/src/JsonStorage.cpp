@@ -1,75 +1,102 @@
 #include "JsonStorage.h"
 #include <fstream>
+#include <filesystem>
+
+json JsonStorage::safeLoad(const std::string& filename)
+{
+    std::filesystem::create_directories(std::filesystem::path(filename).parent_path());
+
+    if (!std::filesystem::exists(filename))
+    {
+        std::ofstream f(filename);
+        f << "[]";
+        return json::array();
+    }
+
+    std::ifstream file(filename);
+    if (!file.is_open())
+    {
+        return json::array();
+    }
+
+    try
+    {
+        json j;
+        file >> j;
+
+
+        if (!j.is_array())
+            return json::array();
+
+        return j;
+    }
+    catch (...)
+    {
+        std::ofstream f(filename, std::ios::trunc);
+        f << "[]";
+        return json::array();
+    }
+}
+
+void JsonStorage::safeSave(const json& j, const std::string& filename)
+{
+    std::filesystem::create_directories(std::filesystem::path(filename).parent_path());
+
+    std::ofstream file(filename, std::ios::trunc);
+    file << j.dump(4);
+}
+
 
 void JsonStorage::loadClients(ClientRepository& repo, const std::string& filename)
 {
-    std::ifstream file(filename);
-    if (!file.is_open()) return;
-
-    json j;
-    file >> j;
+    json j = safeLoad(filename);
 
     for (auto& c : j)
     {
-        Client client(
+        repo.add(Client(
             c["id"],
             c["firstName"],
             c["lastName"],
             c["phone"],
             c["address"]
-        );
-        repo.add(client);
+        ));
     }
 }
 
 void JsonStorage::loadCouriers(CourierRepository& repo, const std::string& filename)
 {
-    std::ifstream file(filename);
-    if (!file.is_open()) return;
-
-    json j;
-    file >> j;
+    json j = safeLoad(filename);
 
     for (auto& c : j)
     {
-        Courier courier(
+        repo.add(Courier(
             c["id"],
             c["firstName"],
             c["lastName"],
             c["phone"],
             c["available"]
-        );
-        repo.add(courier);
+        ));
     }
 }
 
 void JsonStorage::loadMenu(MenuRepository& repo, const std::string& filename)
 {
-    std::ifstream file(filename);
-    if (!file.is_open()) return;
-
-    json j;
-    file >> j;
+    json j = safeLoad(filename);
 
     for (auto& m : j)
     {
-        MenuItem item(
+        repo.add(MenuItem(
             m["id"],
             m["name"],
             m["description"],
             m["price"]
-        );
-        repo.add(item);
+        ));
     }
 }
 
 void JsonStorage::loadOrders(OrderRepository& repo, const std::string& filename)
 {
-    std::ifstream file(filename);
-    if (!file.is_open()) return;
-
-    json j;
-    file >> j;
+    json j = safeLoad(filename);
 
     for (auto& o : j)
     {
@@ -99,10 +126,9 @@ void JsonStorage::loadOrders(OrderRepository& repo, const std::string& filename)
     }
 }
 
+
 void JsonStorage::saveClients(const ClientRepository& repo, const std::string& filename)
 {
-    std::filesystem::create_directories(std::filesystem::path(filename).parent_path());
-
     json j = json::array();
 
     for (const auto& c : repo.getAll())
@@ -116,15 +142,11 @@ void JsonStorage::saveClients(const ClientRepository& repo, const std::string& f
             });
     }
 
-    std::ofstream file(filename, std::ios::trunc); 
-    file << j.dump(4);
+    safeSave(j, filename);
 }
-
 
 void JsonStorage::saveCouriers(const CourierRepository& repo, const std::string& filename)
 {
-    std::filesystem::create_directories(std::filesystem::path(filename).parent_path());
-
     json j = json::array();
 
     for (const auto& c : repo.getAll())
@@ -138,15 +160,11 @@ void JsonStorage::saveCouriers(const CourierRepository& repo, const std::string&
             });
     }
 
-    std::ofstream file(filename, std::ios::trunc);
-    file << j.dump(4);
+    safeSave(j, filename);
 }
-
 
 void JsonStorage::saveMenu(const MenuRepository& repo, const std::string& filename)
 {
-    std::filesystem::create_directories(std::filesystem::path(filename).parent_path());
-
     json j = json::array();
 
     for (const auto& m : repo.getAll())
@@ -159,16 +177,11 @@ void JsonStorage::saveMenu(const MenuRepository& repo, const std::string& filena
             });
     }
 
-    std::ofstream file(filename, std::ios::trunc);
-    file << j.dump(4);
+    safeSave(j, filename);
 }
-
-
 
 void JsonStorage::saveOrders(const OrderRepository& repo, const std::string& filename)
 {
-    std::filesystem::create_directories(std::filesystem::path(filename).parent_path());
-
     json j = json::array();
 
     for (const auto& o : repo.getAll())
@@ -197,6 +210,5 @@ void JsonStorage::saveOrders(const OrderRepository& repo, const std::string& fil
             });
     }
 
-    std::ofstream file(filename, std::ios::trunc);
-    file << j.dump(4);
+    safeSave(j, filename);
 }

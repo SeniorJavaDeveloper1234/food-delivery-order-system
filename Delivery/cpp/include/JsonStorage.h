@@ -11,6 +11,8 @@ using json = nlohmann::json;
 
 class JsonStorage {
 public:
+    static json safeLoad(const std::string& filename);
+    static void safeSave(const json& j, const std::string& filename);
 
     static void loadClients(ClientRepository& repo, const std::string& filename);
     static void loadCouriers(CourierRepository& repo, const std::string& filename);
