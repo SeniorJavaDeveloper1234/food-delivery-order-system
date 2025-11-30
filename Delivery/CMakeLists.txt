@@ -1,36 +1,28 @@
-﻿cmake_minimum_required(VERSION 3.15)
-project(Delivery LANGUAGES CXX)
+﻿cmake_minimum_required(VERSION 3.21)
+project(Delivery)
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# --- Підтягнути pybind11 ---
-include(FetchContent)
-FetchContent_Declare(
-    pybind11
-    GIT_REPOSITORY https://github.com/pybind/pybind11.git
-    GIT_TAG v2.11.1
-)
-FetchContent_MakeAvailable(pybind11)
 
-# --- Шлях до include ---
-include_directories(cpp/include)
+add_subdirectory(external/pybind11)
 
-# --- Зібрати всі .cpp файли ---
-file(GLOB SOURCES cpp/src/*.cpp)
 
-# --- Екзешник ---
+
+file(GLOB PROJECT_SOURCES cpp/src/*.cpp)
+
 add_executable(Delivery
     cpp/main.cpp
-    ${SOURCES}
+    ${PROJECT_SOURCES}
 )
 
-# --- Python модуль ---
+target_include_directories(Delivery PRIVATE cpp/include)
+
+
+
 pybind11_add_module(delivery MODULE
-    cpp/src/bindings.cpp   # твій pybind файл
-    ${SOURCES}              # логіка програми
+    python/bindings.cpp
+    ${PROJECT_SOURCES}
 )
 
-# Забороняємо видаляти .pyd після установки
-set_target_properties(delivery PROPERTIES
-    OUTPUT_NAME "delivery"
-)
+target_include_directories(delivery PRIVATE cpp/include)

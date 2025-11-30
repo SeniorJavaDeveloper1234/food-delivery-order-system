@@ -115,11 +115,11 @@ int main()
             Order* order = system.createOrder(clientId, itemIds);
             if (!order)
             {
-                std::cout << "❌ Немає вільних кур'єрів!\n";
+                std::cout << " Немає вільних кур'єрів!\n";
             }
             else
             {
-                std::cout << "✔ Замовлення створено. ID = " << order->getId() << "\n";
+                std::cout << "Замовлення створено. ID = " << order->getId() << "\n";
                 std::cout << "Сума: " << order->getTotalPrice() << " грн\n";
 
                 JsonStorage::saveOrders(*system.orders(), "data/orders.json");
@@ -134,11 +134,11 @@ int main()
 
             if (system.completeOrder(orderId))
             {
-                std::cout << "✔ Замовлення завершено.\n";
+                std::cout << "Замовлення завершено.\n";
                 JsonStorage::saveOrders(*system.orders(), "data/orders.json");
             }
             else
-                std::cout << "❌ Замовлення не знайдено.\n";
+                std::cout << "Замовлення не знайдено.\n";
         }
 
         else if (choice == 6)
@@ -149,11 +149,11 @@ int main()
 
             if (system.cancelOrder(orderId))
             {
-                std::cout << "✔ Замовлення скасовано.\n";
+                std::cout << "Замовлення скасовано.\n";
                 JsonStorage::saveOrders(*system.orders(), "data/orders.json");
             }
             else
-                std::cout << "❌ Замовлення не знайдено.\n";
+                std::cout << "Замовлення не знайдено.\n";
         }
 
         else if (choice == 7)
