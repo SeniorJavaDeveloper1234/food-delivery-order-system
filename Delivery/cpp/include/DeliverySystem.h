@@ -27,6 +27,7 @@ public:
     OrderRepository* orders() const;
 
     Order* createOrder(int clientId, const std::vector<int>& itemIds);
+    Order* createOrder(int clientId, const std::vector<OrderItem>& items);
 
     bool completeOrder(int orderId);
     bool cancelOrder(int orderId);

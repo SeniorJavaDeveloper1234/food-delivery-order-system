@@ -68,6 +68,33 @@ Order* DeliverySystem::createOrder(int clientId, const std::vector<int>& itemIds
     return const_cast<Order*>(&list.back());
 }
 
+Order* DeliverySystem::createOrder(int clientId, const std::vector<OrderItem>& items)
+{
+    Courier* courier = courierRepo->findAvailableCourier();
+    if (!courier)
+        return nullptr;
+
+    courier->setAvailable(false);
+
+    Order order(
+        0,
+        clientId,
+        items,
+        getCurrentTime()
+    );
+
+    order.setCourierId(courier->getId());
+
+    orderRepo->add(order);
+
+    auto& list = orderRepo->findByClientId(clientId);
+    if (list.empty())
+        return nullptr;
+
+    return const_cast<Order*>(&list.back());
+}
+
+
 bool DeliverySystem::completeOrder(int orderId)
 {
     Order* order = orderRepo->findById(orderId);
