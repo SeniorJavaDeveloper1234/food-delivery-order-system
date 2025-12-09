@@ -15,16 +15,34 @@ private:
     std::unique_ptr<MenuRepository> menuRepo;
     std::unique_ptr<OrderRepository> orderRepo;
 
+    void loadAll();
+ 
+
+    void saveClients() const;
+    void saveCouriers() const;
+    void saveMenu() const;
+    void saveOrders() const;
 
     std::string getCurrentTime() const;
 
 public:
+
+    void saveAll() const;
     DeliverySystem();
 
     ClientRepository* clients() const;
     CourierRepository* couriers() const;
     MenuRepository* menu() const;
     OrderRepository* orders() const;
+
+    bool addClient(const Client& c);
+    bool removeClient(int id);
+
+    bool addCourier(const Courier& c);
+    bool removeCourier(int id);
+
+    bool addMenuItem(const MenuItem& m);
+    bool removeMenuItem(int id);
 
     Order* createOrder(int clientId, const std::vector<int>& itemIds);
     Order* createOrder(int clientId, const std::vector<OrderItem>& items);

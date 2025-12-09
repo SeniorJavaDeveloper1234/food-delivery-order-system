@@ -182,6 +182,17 @@ PYBIND11_MODULE(delivery, m)
     py::class_<DeliverySystem>(m, "DeliverySystem")
         .def(py::init<>())
 
+
+        .def("addClient", &DeliverySystem::addClient)
+        .def("removeClient", &DeliverySystem::removeClient)
+
+
+        .def("addCourier", &DeliverySystem::addCourier)
+        .def("removeCourier", &DeliverySystem::removeCourier)
+
+        .def("addMenuItem", &DeliverySystem::addMenuItem)
+        .def("removeMenuItem", &DeliverySystem::removeMenuItem)
+
         .def("createOrder",
             py::overload_cast<int, const std::vector<int>&>(
                 &DeliverySystem::createOrder),
@@ -194,8 +205,11 @@ PYBIND11_MODULE(delivery, m)
 
         .def("completeOrder", &DeliverySystem::completeOrder)
         .def("cancelOrder", &DeliverySystem::cancelOrder)
+
         .def("getClientOrders", &DeliverySystem::getClientOrders)
         .def("getCourierOrders", &DeliverySystem::getCourierOrders)
+
+
         .def("clients", &DeliverySystem::clients,
             py::return_value_policy::reference)
         .def("couriers", &DeliverySystem::couriers,
@@ -203,6 +217,8 @@ PYBIND11_MODULE(delivery, m)
         .def("menu", &DeliverySystem::menu,
             py::return_value_policy::reference)
         .def("orders", &DeliverySystem::orders,
-            py::return_value_policy::reference);
+            py::return_value_policy::reference)
 
+        .def("saveAll", &DeliverySystem::saveAll);
+            
 }
