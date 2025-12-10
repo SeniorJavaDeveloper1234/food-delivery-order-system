@@ -46,13 +46,25 @@ class EditMenuItemWindow(QDialog):
         cancel_btn.clicked.connect(self.reject)
 
     def save(self):
-        name = self.name_field.text()
-        desc = self.desc_field.text()
-        price = float(self.price_field.text())
+        try:
+            item_id = int(self.id_field.text())
+            name = self.name_field.text().strip()
+            desc = self.desc_field.text().strip()
+            price_text = self.price_field.text().strip()
 
-        self.item.setName(name)
-        self.item.setDescription(desc)
-        self.item.setPrice(price)
+            if not name or not price_text:
+                QMessageBox.warning(self, "Error", "Name and Price are required.")
+                return
+
+            price = float(price_text)
+        except ValueError:
+            QMessageBox.warning(self, "Error", "Price must be a valid number.")
+            return
+
+        ok = self.adapter.update_menu_item(item_id, name, desc, price)
+        if not ok:
+            QMessageBox.critical(self, "Error", "Failed to update menu item in storage.")
+            return
 
         self.accept()
 

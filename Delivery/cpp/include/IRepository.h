@@ -13,4 +13,6 @@ public:
     virtual T* findById(int id) = 0;
 
     virtual std::vector<T> getAll() const = 0;
+
+    virtual void updateNextId() = 0;
 };

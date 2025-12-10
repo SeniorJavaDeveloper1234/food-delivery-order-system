@@ -24,7 +24,6 @@ json JsonStorage::safeLoad(const std::string& filename)
         json j;
         file >> j;
 
-
         if (!j.is_array())
             return json::array();
 
@@ -47,13 +46,14 @@ void JsonStorage::safeSave(const json& j, const std::string& filename)
 }
 
 
+
 void JsonStorage::loadClients(ClientRepository& repo, const std::string& filename)
 {
     json j = safeLoad(filename);
 
     for (auto& c : j)
     {
-        repo.add(Client(
+        repo.addLoaded(Client(
             c["id"],
             c["firstName"],
             c["lastName"],
@@ -61,6 +61,8 @@ void JsonStorage::loadClients(ClientRepository& repo, const std::string& filenam
             c["address"]
         ));
     }
+
+    repo.updateNextId();
 }
 
 void JsonStorage::loadCouriers(CourierRepository& repo, const std::string& filename)
@@ -69,7 +71,7 @@ void JsonStorage::loadCouriers(CourierRepository& repo, const std::string& filen
 
     for (auto& c : j)
     {
-        repo.add(Courier(
+        repo.addLoaded(Courier(
             c["id"],
             c["firstName"],
             c["lastName"],
@@ -77,6 +79,8 @@ void JsonStorage::loadCouriers(CourierRepository& repo, const std::string& filen
             c["available"]
         ));
     }
+
+    repo.updateNextId();
 }
 
 void JsonStorage::loadMenu(MenuRepository& repo, const std::string& filename)
@@ -85,13 +89,15 @@ void JsonStorage::loadMenu(MenuRepository& repo, const std::string& filename)
 
     for (auto& m : j)
     {
-        repo.add(MenuItem(
+        repo.addLoaded(MenuItem(
             m["id"],
             m["name"],
             m["description"],
             m["price"]
         ));
     }
+
+    repo.updateNextId();
 }
 
 void JsonStorage::loadOrders(OrderRepository& repo, const std::string& filename)
@@ -122,9 +128,13 @@ void JsonStorage::loadOrders(OrderRepository& repo, const std::string& filename)
         order.setCourierId(o["courierId"]);
         order.setStatus(static_cast<OrderStatus>(o["status"]));
 
-        repo.add(order);
+        repo.addLoaded(order);
     }
+
+    repo.updateNextId();
 }
+
+
 
 
 void JsonStorage::saveClients(const ClientRepository& repo, const std::string& filename)

@@ -17,9 +17,16 @@ DeliverySystem::DeliverySystem() {
 
 void DeliverySystem::loadAll() {
     JsonStorage::loadClients(*clientRepo, "data/clients.json");
+    clientRepo->updateNextId();
+
     JsonStorage::loadCouriers(*courierRepo, "data/couriers.json");
+    courierRepo->updateNextId();
+
     JsonStorage::loadMenu(*menuRepo, "data/menu.json");
+    menuRepo->updateNextId();
+
     JsonStorage::loadOrders(*orderRepo, "data/orders.json");
+    orderRepo->updateNextId();
 }
 
 void DeliverySystem::saveClients() const {
@@ -69,6 +76,26 @@ bool DeliverySystem::addClient(const Client& c) {
     return true;
 }
 
+bool DeliverySystem::updateClient(int id,
+    const std::string& first,
+    const std::string& last,
+    const std::string& phone,
+    const std::string& address)
+{
+    Client* c = clientRepo->findById(id);
+    if (!c)
+        return false;
+
+    c->setFirstName(first);
+    c->setLastName(last);
+    c->setPhone(phone);
+    c->setAddress(address);
+
+    saveClients();   
+    return true;
+}
+
+
 bool DeliverySystem::removeClient(int id) {
     bool ok = clientRepo->remove(id);
     if (ok) saveClients();
@@ -84,6 +111,26 @@ bool DeliverySystem::addCourier(const Courier& c) {
     return true;
 }
 
+bool DeliverySystem::updateCourier(int id,
+    const std::string& first,
+    const std::string& last,
+    const std::string& phone,
+    bool available)
+{
+    Courier* c = courierRepo->findById(id);
+    if (!c)
+        return false;
+
+    c->setFirstName(first);
+    c->setLastName(last);
+    c->setPhone(phone);
+    c->setAvailable(available);
+
+    saveCouriers();   
+    return true;
+}
+
+
 bool DeliverySystem::removeCourier(int id) {
     bool ok = courierRepo->remove(id);
     if (ok) saveCouriers();
@@ -98,12 +145,33 @@ bool DeliverySystem::addMenuItem(const MenuItem& m) {
     return true;
 }
 
+bool DeliverySystem::updateMenuItem(int id,
+    const std::string& name,
+    const std::string& desc,
+    double price)
+{
+    MenuItem* m = menuRepo->findById(id);
+    if (!m)
+        return false;
+
+    m->setName(name);
+    m->setDescription(desc);
+    m->setPrice(price);
+
+    saveMenu();   
+    return true;
+}
+
+
 bool DeliverySystem::removeMenuItem(int id) {
     bool ok = menuRepo->remove(id);
     if (ok) saveMenu();
     return ok;
 }
 
+std::vector<MenuItem> DeliverySystem::searchMenu(const std::string& part) const {
+    return menuRepo->searchByName(part);
+}
 
 
 Order* DeliverySystem::createOrder(int clientId, const std::vector<int>& itemIds) {

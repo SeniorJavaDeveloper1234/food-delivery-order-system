@@ -22,4 +22,7 @@ public:
     Courier* findAvailableCourier();
 
     void setCourierAvailability(int id, bool available);
+
+    void updateNextId();
+    void addLoaded(const Courier& c);
 };

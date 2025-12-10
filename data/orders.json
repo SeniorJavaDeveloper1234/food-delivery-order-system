@@ -1,1 +1,19 @@
-[]
+[
+    {
+        "clientId": 2,
+        "courierId": 1,
+        "createdAt": "2025-12-10 12:21:47",
+        "id": 1,
+        "items": [
+            {
+                "menuItemId": 1,
+                "name": "вфафа",
+                "quantity": 5,
+                "totalPrice": 5.0,
+                "unitPrice": 1.0
+            }
+        ],
+        "status": 1,
+        "totalPrice": 5.0
+    }
+]

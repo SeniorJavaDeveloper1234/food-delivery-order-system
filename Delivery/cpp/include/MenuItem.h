@@ -24,4 +24,5 @@ public:
     void setName(const std::string& name);
     void setDescription(const std::string& desc);
     void setPrice(double price);
+
 };

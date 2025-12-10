@@ -162,8 +162,11 @@ PYBIND11_MODULE(delivery, m)
         .def("findByName",
             &MenuRepository::findByName,
             py::return_value_policy::reference)
+        .def("searchByName", &MenuRepository::searchByName)
+
         .def("getAll", &MenuRepository::getAll)
         .def("updatePrice", &MenuRepository::updatePrice);
+
 
 
     py::class_<OrderRepository>(m, "OrderRepository")
@@ -184,14 +187,17 @@ PYBIND11_MODULE(delivery, m)
 
 
         .def("addClient", &DeliverySystem::addClient)
+        .def("updateClient", &DeliverySystem::updateClient)
         .def("removeClient", &DeliverySystem::removeClient)
 
 
         .def("addCourier", &DeliverySystem::addCourier)
+        .def("updateCourier", &DeliverySystem::updateCourier)
         .def("removeCourier", &DeliverySystem::removeCourier)
 
         .def("addMenuItem", &DeliverySystem::addMenuItem)
         .def("removeMenuItem", &DeliverySystem::removeMenuItem)
+        .def("searchMenu", &DeliverySystem::searchMenu)
 
         .def("createOrder",
             py::overload_cast<int, const std::vector<int>&>(
@@ -202,6 +208,8 @@ PYBIND11_MODULE(delivery, m)
             py::overload_cast<int, const std::vector<OrderItem>&>(
                 &DeliverySystem::createOrder),
             py::return_value_policy::reference)
+
+        .def("updateMenuItem", &DeliverySystem::updateMenuItem)
 
         .def("completeOrder", &DeliverySystem::completeOrder)
         .def("cancelOrder", &DeliverySystem::cancelOrder)

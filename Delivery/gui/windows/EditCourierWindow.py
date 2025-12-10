@@ -49,11 +49,18 @@ class EditCourierWindow(QDialog):
         cancel_btn.clicked.connect(self.reject)
 
     def save(self):
-        self.courier.setFirstName(self.first_field.text())
-        self.courier.setLastName(self.last_field.text())
-        self.courier.setPhone(self.phone_field.text())
-        self.courier.setAvailable(self.available_box.isChecked())
-        self.accept()
+        ok = self.adapter.update_courier(
+            self.courier.getId(),
+            self.first_field.text(),
+            self.last_field.text(),
+            self.phone_field.text(),
+            self.available_box.isChecked()
+        )
+
+        if ok:
+            self.accept()
+        else:
+            QMessageBox.warning(self, "Error", "Courier was not updated.")
 
     def delete(self):
         confirm = QMessageBox.question(

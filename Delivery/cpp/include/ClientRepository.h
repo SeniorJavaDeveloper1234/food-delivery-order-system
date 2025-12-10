@@ -11,6 +11,7 @@ private:
 public:
     ClientRepository() = default;
 
+
     void add(const Client& client) override;
 
     bool remove(int id) override;
@@ -20,4 +21,7 @@ public:
     std::vector<Client> getAll() const override;
 
     Client* findByPhone(const std::string& phone);
+
+    void updateNextId();
+    void addLoaded(const Client& c);
 };

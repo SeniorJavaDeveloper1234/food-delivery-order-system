@@ -49,13 +49,27 @@ class EditClientWindow(QDialog):
         cancel_btn.clicked.connect(self.reject)
 
     def save(self):
-        self.adapter.update_client(
+        first = self.first_field.text().strip()
+        last = self.last_field.text().strip()
+        phone = self.phone_field.text().strip()
+        address = self.address_field.text().strip()
+
+        if first == "" or last == "" or phone == "" or address == "":
+            QMessageBox.warning(self, "Error", "All fields must be filled!")
+            return
+
+        ok = self.adapter.update_client(
             self.client.getId(),
-            self.first_field.text(),
-            self.last_field.text(),
-            self.phone_field.text(),
-            self.address_field.text()
+            first,
+            last,
+            phone,
+            address
         )
+
+        if not ok:
+            QMessageBox.critical(self, "Error", "Failed to update client — not found.")
+            return
+
         self.accept()
 
     def delete(self):

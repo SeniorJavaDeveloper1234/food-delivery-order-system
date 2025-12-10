@@ -1,1 +1,16 @@
-[]
+[
+    {
+        "available": false,
+        "firstName": "",
+        "id": 1,
+        "lastName": "",
+        "phone": ""
+    },
+    {
+        "available": false,
+        "firstName": "фівафіафа",
+        "id": 3,
+        "lastName": "фівафав",
+        "phone": "фвафвіа"
+    }
+]

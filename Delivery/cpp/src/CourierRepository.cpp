@@ -26,6 +26,7 @@ Courier* CourierRepository::findById(int id) {
     return nullptr;
 }
 
+
 std::vector<Courier> CourierRepository::getAll() const {
     return couriers;
 }
@@ -46,4 +47,19 @@ void CourierRepository::setCourierAvailability(int id, bool available) {
             return;
         }
     }
+}
+
+void CourierRepository::addLoaded(const Courier& c)
+{
+    couriers.push_back(c);
+}
+
+void CourierRepository::updateNextId()
+{
+    int maxId = 0;
+    for (auto& c : couriers)
+        if (c.getId() > maxId)
+            maxId = c.getId();
+
+    nextId = maxId + 1;
 }

@@ -1,8 +1,10 @@
 #include "MenuRepository.h"
+#include <algorithm>
+
 
 void MenuRepository::add(const MenuItem& item) {
-    MenuItem m = item;      
-    m.setId(nextId++);     
+    MenuItem m = item;
+    m.setId(nextId++);
     items.push_back(m);
 }
 
@@ -38,6 +40,29 @@ MenuItem* MenuRepository::findByName(const std::string& name) {
     return nullptr;
 }
 
+
+std::vector<MenuItem> MenuRepository::searchByName(const std::string& part) const {
+    std::vector<MenuItem> result;
+
+    if (part.empty())
+        return items;
+
+    std::string lowerPart = part;
+    std::transform(lowerPart.begin(), lowerPart.end(), lowerPart.begin(), ::tolower);
+
+    for (const auto& m : items) {
+        std::string name = m.getName();
+        std::transform(name.begin(), name.end(), name.begin(), ::tolower);
+
+        if (name.find(lowerPart) != std::string::npos) {
+            result.push_back(m);
+        }
+    }
+
+    return result;
+}
+
+
 void MenuRepository::updatePrice(int id, double newPrice) {
     for (auto& m : items) {
         if (m.getId() == id) {
@@ -46,3 +71,19 @@ void MenuRepository::updatePrice(int id, double newPrice) {
         }
     }
 }
+
+void MenuRepository::addLoaded(const MenuItem& m)
+{
+    items.push_back(m);
+}
+
+void MenuRepository::updateNextId()
+{
+    int maxId = 0;
+    for (auto& m : items)
+        if (m.getId() > maxId)
+            maxId = m.getId();
+
+    nextId = maxId + 1;
+}
+

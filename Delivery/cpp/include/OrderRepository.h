@@ -24,4 +24,7 @@ public:
 
     const std::vector<Order>& findByClientId(int clientId) const;
     const std::vector<Order>& findByCourierId(int courierId) const;
+
+    void updateNextId();
+    void addLoaded(const Order& o);
 };

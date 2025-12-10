@@ -1,6 +1,6 @@
 ﻿from PyQt5.QtWidgets import (
     QDialog, QVBoxLayout, QHBoxLayout, QLabel,
-    QLineEdit, QPushButton
+    QLineEdit, QPushButton, QMessageBox
 )
 
 class AddClientWindow(QDialog):
@@ -11,7 +11,6 @@ class AddClientWindow(QDialog):
         self.setWindowTitle("Add Client")
         self.setMinimumWidth(350)
 
-        self.id_field = QLineEdit()
         self.first_field = QLineEdit()
         self.last_field = QLineEdit()
         self.phone_field = QLineEdit()
@@ -21,14 +20,16 @@ class AddClientWindow(QDialog):
         cancel_btn = QPushButton("Cancel")
 
         layout = QVBoxLayout()
-        layout.addWidget(QLabel("ID"))
-        layout.addWidget(self.id_field)
+
         layout.addWidget(QLabel("First Name"))
         layout.addWidget(self.first_field)
+
         layout.addWidget(QLabel("Last Name"))
         layout.addWidget(self.last_field)
+
         layout.addWidget(QLabel("Phone"))
         layout.addWidget(self.phone_field)
+
         layout.addWidget(QLabel("Address"))
         layout.addWidget(self.address_field)
 
@@ -42,12 +43,20 @@ class AddClientWindow(QDialog):
         save_btn.clicked.connect(self.save)
         cancel_btn.clicked.connect(self.reject)
 
-    def save(self):
-        cid = int(self.id_field.text())
-        first = self.first_field.text()
-        last = self.last_field.text()
-        phone = self.phone_field.text()
-        address = self.address_field.text()
+    def show_error(self, text):
+        QMessageBox.critical(self, "Error", text)
 
-        self.adapter.add_client(cid, first, last, phone, address)
+    def save(self):
+        first = self.first_field.text().strip()
+        last = self.last_field.text().strip()
+        phone = self.phone_field.text().strip()
+        address = self.address_field.text().strip()
+
+        if not first or not last or not phone or not address:
+            self.show_error("All fields must be filled.")
+            return
+
+        self.adapter.add_client(first, last, phone, address)
+
+        QMessageBox.information(self, "Success", "Client added successfully!")
         self.accept()

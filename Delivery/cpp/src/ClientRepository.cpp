@@ -17,6 +17,8 @@ bool ClientRepository::remove(int id) {
     return false;
 }
 
+
+
 Client* ClientRepository::findById(int id) {
     for (auto& c : clients) {
         if (c.getId() == id) {
@@ -38,4 +40,21 @@ Client* ClientRepository::findByPhone(const std::string& phone) {
         }
     }
     return nullptr;
+}
+
+
+void ClientRepository::updateNextId()
+{
+    int maxId = 0;
+    for (auto& c : clients)
+        if (c.getId() > maxId)
+            maxId = c.getId();
+
+    nextId = maxId + 1;
+}
+
+
+void ClientRepository::addLoaded(const Client& c)
+{
+    clients.push_back(c);
 }

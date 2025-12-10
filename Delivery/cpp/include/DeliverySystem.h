@@ -36,13 +36,33 @@ public:
     OrderRepository* orders() const;
 
     bool addClient(const Client& c);
+    bool updateClient(int id,
+        const std::string& first,
+        const std::string& last,
+        const std::string& phone,
+        const std::string& address);
+
     bool removeClient(int id);
 
     bool addCourier(const Courier& c);
+    bool updateCourier(int id,
+        const std::string& first,
+        const std::string& last,
+        const std::string& phone,
+        bool available);
+
     bool removeCourier(int id);
 
     bool addMenuItem(const MenuItem& m);
+    bool updateMenuItem(int id,
+        const std::string& name,
+        const std::string& desc,
+        double price);
+
     bool removeMenuItem(int id);
+
+    std::vector<MenuItem> searchMenu(const std::string& part) const;
+
 
     Order* createOrder(int clientId, const std::vector<int>& itemIds);
     Order* createOrder(int clientId, const std::vector<OrderItem>& items);

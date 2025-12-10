@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import (
     QDialog, QVBoxLayout, QHBoxLayout, QLabel,
-    QLineEdit, QPushButton
+    QLineEdit, QPushButton, QMessageBox
 )
 
 class AddMenuItemWindow(QDialog):
@@ -11,7 +11,6 @@ class AddMenuItemWindow(QDialog):
         self.setWindowTitle("Add Menu Item")
         self.setMinimumWidth(350)
 
-        self.id_field = QLineEdit()
         self.name_field = QLineEdit()
         self.desc_field = QLineEdit()
         self.price_field = QLineEdit()
@@ -20,8 +19,6 @@ class AddMenuItemWindow(QDialog):
         cancel_btn = QPushButton("Cancel")
 
         layout = QVBoxLayout()
-        layout.addWidget(QLabel("ID"))
-        layout.addWidget(self.id_field)
         layout.addWidget(QLabel("Name"))
         layout.addWidget(self.name_field)
         layout.addWidget(QLabel("Description"))
@@ -39,11 +36,29 @@ class AddMenuItemWindow(QDialog):
         save_btn.clicked.connect(self.save)
         cancel_btn.clicked.connect(self.reject)
 
-    def save(self):
-        mid = int(self.id_field.text())
-        name = self.name_field.text()
-        desc = self.desc_field.text()
-        price = float(self.price_field.text())
+    def show_error(self, text):
+        QMessageBox.critical(self, "Error", text)
 
-        self.adapter.add_menu_item(mid, name, desc, price)
+    def save(self):
+        name = self.name_field.text().strip()
+        desc = self.desc_field.text().strip()
+        price_text = self.price_field.text().strip()
+
+        if not name or not desc or not price_text:
+            self.show_error("All fields must be filled.")
+            return
+
+        try:
+            price = float(price_text)
+        except ValueError:
+            self.show_error("Price must be a number.")
+            return
+
+        if price <= 0:
+            self.show_error("Price must be greater than 0.")
+            return
+
+        self.adapter.add_menu_item(name, desc, price)
+
+        QMessageBox.information(self, "Success", "Menu item added successfully!")
         self.accept()

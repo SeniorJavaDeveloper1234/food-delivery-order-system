@@ -28,6 +28,8 @@ Order* OrderRepository::findById(int id)
     return nullptr;
 }
 
+
+
 std::vector<Order> OrderRepository::getAll() const
 {
     return orders;
@@ -60,4 +62,19 @@ const std::vector<Order>& OrderRepository::findByCourierId(int courierId) const
             tempCourierResults.push_back(o);
 
     return tempCourierResults;
+}
+
+void OrderRepository::addLoaded(const Order& o)
+{
+    orders.push_back(o);
+}
+
+void OrderRepository::updateNextId()
+{
+    int maxId = 0;
+    for (auto& o : orders)
+        if (o.getId() > maxId)
+            maxId = o.getId();
+
+    nextId = maxId + 1;
 }

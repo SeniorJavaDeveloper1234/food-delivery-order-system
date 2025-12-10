@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QHBoxLayout
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QHBoxLayout, QLineEdit
 from widgets.MenuTable import MenuTable
 from windows.AddMenuItemWindow import AddMenuItemWindow
 from windows.EditMenuItemWindow import EditMenuItemWindow
@@ -17,6 +17,13 @@ class MenuPage(QWidget):
         top.addWidget(self.refresh_btn)
         top.addWidget(self.add_btn)
         top.addWidget(self.edit_btn)
+
+        self.search_field = QLineEdit()
+        self.search_field.setPlaceholderText("Search by name...")
+        self.search_field.textChanged.connect(self.do_search)
+
+        top.addWidget(self.search_field)
+
 
         layout = QVBoxLayout()
         layout.addLayout(top)
@@ -54,3 +61,8 @@ class MenuPage(QWidget):
         win = EditMenuItemWindow(self.adapter, item, self)
         if win.exec_():
             self.load_data()
+
+    def do_search(self):
+        text = self.search_field.text()
+        data = self.adapter.search_menu(text)
+        self.table.update_data(data)

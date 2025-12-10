@@ -13,8 +13,8 @@ class DeliveryAdapter:
     def get_clients(self):
         return self.ds.clients().getAll()
 
-    def add_client(self, client_id, first, last, phone, address):
-        client = delivery.Client(client_id, first, last, phone, address)
+    def add_client(self, first, last, phone, address):
+        client = delivery.Client(0, first, last, phone, address)
         self.ds.addClient(client)
         self.save()
 
@@ -38,8 +38,8 @@ class DeliveryAdapter:
     def get_couriers(self):
         return self.ds.couriers().getAll()
 
-    def add_courier(self, cid, first, last, phone, available=True):
-        courier = delivery.Courier(cid, first, last, phone, available)
+    def add_courier(self, first, last, phone, available=True):
+        courier = delivery.Courier(0, first, last, phone, available)
         self.ds.addCourier(courier)
         self.save()
 
@@ -60,8 +60,8 @@ class DeliveryAdapter:
     def get_menu(self):
         return self.ds.menu().getAll()
 
-    def add_menu_item(self, mid, name, desc, price):
-        item = delivery.MenuItem(mid, name, desc, price)
+    def add_menu_item(self, name, desc, price):
+        item = delivery.MenuItem(0, name, desc, price)
         self.ds.addMenuItem(item)
         self.save()
 
@@ -76,6 +76,9 @@ class DeliveryAdapter:
         if ok:
             self.save()
         return ok
+
+    def search_menu(self, part):
+        return self.ds.menu().searchByName(part)
 
     # -------- ORDERS --------
 
@@ -94,10 +97,10 @@ class DeliveryAdapter:
         return order
 
     def create_order_by_items(self, client_id, py_items):
-        items = []
-        for x in py_items:
-            items.append(delivery.OrderItem(x["id"], x["name"], x["price"], x["qty"]))
-
+        items = [
+            delivery.OrderItem(x["id"], x["name"], x["price"], x["qty"])
+            for x in py_items
+        ]
         order = self.ds.createOrder(client_id, items)
         self.save()
         return order
@@ -129,7 +132,4 @@ class DeliveryAdapter:
         return ok
 
     def calc_total(self, py_items):
-        total = 0.0
-        for item in py_items:
-            total += item["price"] * item["qty"]
-        return total
+        return sum(item["price"] * item["qty"] for item in py_items)
