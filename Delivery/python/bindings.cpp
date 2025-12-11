@@ -27,6 +27,9 @@ std::string orderStatusToString(OrderStatus s)
     return "Unknown";
 }
 
+
+
+
 PYBIND11_MODULE(delivery, m)
 {
     m.doc() = "Delivery System Python bindings";
@@ -38,6 +41,14 @@ PYBIND11_MODULE(delivery, m)
         .value("Delivering", OrderStatus::Delivering)
         .value("Completed", OrderStatus::Completed)
         .value("Cancelled", OrderStatus::Cancelled);
+
+    py::enum_<OrderSortType>(m, "OrderSortType")
+        .value("ById", OrderSortType::ById)
+        .value("ByClient", OrderSortType::ByClient)
+        .value("ByCourier", OrderSortType::ByCourier)
+        .value("ByTotal", OrderSortType::ByTotal)
+        .value("ByCreated", OrderSortType::ByCreated);
+
 
 
     py::class_<Client>(m, "Client")
@@ -216,6 +227,8 @@ PYBIND11_MODULE(delivery, m)
 
         .def("getClientOrders", &DeliverySystem::getClientOrders)
         .def("getCourierOrders", &DeliverySystem::getCourierOrders)
+        .def("getSortedOrders", &DeliverySystem::getSortedOrders)
+
 
 
         .def("clients", &DeliverySystem::clients,

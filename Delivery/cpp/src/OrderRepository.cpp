@@ -1,4 +1,6 @@
+#include <algorithm>
 #include "OrderRepository.h"
+
 
 void OrderRepository::add(const Order& order)
 {
@@ -78,3 +80,39 @@ void OrderRepository::updateNextId()
 
     nextId = maxId + 1;
 }
+
+
+std::vector<Order> OrderRepository::getSorted(OrderSortType type) const
+{
+    std::vector<Order> result = orders;
+
+    switch (type) {
+    case OrderSortType::ById:
+        std::sort(result.begin(), result.end(),
+            [](const Order& a, const Order& b) { return a.getId() < b.getId(); });
+        break;
+
+    case OrderSortType::ByClient:
+        std::sort(result.begin(), result.end(),
+            [](const Order& a, const Order& b) { return a.getClientId() < b.getClientId(); });
+        break;
+
+    case OrderSortType::ByCourier:
+        std::sort(result.begin(), result.end(),
+            [](const Order& a, const Order& b) { return a.getCourierId() < b.getCourierId(); });
+        break;
+
+    case OrderSortType::ByTotal:
+        std::sort(result.begin(), result.end(),
+            [](const Order& a, const Order& b) { return a.getTotalPrice() < b.getTotalPrice(); });
+        break;
+
+    case OrderSortType::ByCreated:
+        std::sort(result.begin(), result.end(),
+            [](const Order& a, const Order& b) { return a.getCreatedAt() < b.getCreatedAt(); });
+        break;
+    }
+
+    return result;
+}
+

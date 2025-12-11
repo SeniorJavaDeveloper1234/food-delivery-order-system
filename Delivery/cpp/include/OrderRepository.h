@@ -3,6 +3,14 @@
 #include "Order.h"
 #include "IRepository.h"
 
+enum class OrderSortType {
+    ById,
+    ByClient,
+    ByCourier,
+    ByTotal,
+    ByCreated
+};
+
 class OrderRepository : public IRepository<Order> {
 private:
     std::vector<Order> orders;
@@ -27,4 +35,6 @@ public:
 
     void updateNextId();
     void addLoaded(const Order& o);
+
+    std::vector<Order> getSorted(OrderSortType type) const;
 };

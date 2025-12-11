@@ -61,11 +61,14 @@ public:
 
     bool removeMenuItem(int id);
 
+
     std::vector<MenuItem> searchMenu(const std::string& part) const;
 
 
     Order* createOrder(int clientId, const std::vector<int>& itemIds);
     Order* createOrder(int clientId, const std::vector<OrderItem>& items);
+    std::vector<Order> getSortedOrders(OrderSortType type) const;
+
 
     bool completeOrder(int orderId);
     bool cancelOrder(int orderId);

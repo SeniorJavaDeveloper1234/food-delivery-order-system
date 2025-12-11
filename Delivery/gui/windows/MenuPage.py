@@ -1,3 +1,5 @@
+
+
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QHBoxLayout, QLineEdit
 from widgets.MenuTable import MenuTable
 from windows.AddMenuItemWindow import AddMenuItemWindow
@@ -9,28 +11,24 @@ class MenuPage(QWidget):
         self.adapter = adapter
 
         self.table = MenuTable()
-        self.refresh_btn = QPushButton("Refresh")
         self.add_btn = QPushButton("Add Item")
         self.edit_btn = QPushButton("Edit Item")
-
-        top = QHBoxLayout()
-        top.addWidget(self.refresh_btn)
-        top.addWidget(self.add_btn)
-        top.addWidget(self.edit_btn)
 
         self.search_field = QLineEdit()
         self.search_field.setPlaceholderText("Search by name...")
         self.search_field.textChanged.connect(self.do_search)
 
+        top = QHBoxLayout()
+        top.addWidget(self.add_btn)
+        top.addWidget(self.edit_btn)
         top.addWidget(self.search_field)
-
+        top.addStretch()
 
         layout = QVBoxLayout()
         layout.addLayout(top)
         layout.addWidget(self.table)
         self.setLayout(layout)
 
-        self.refresh_btn.clicked.connect(self.load_data)
         self.add_btn.clicked.connect(self.add_item)
         self.edit_btn.clicked.connect(self.edit_item)
 
@@ -51,12 +49,7 @@ class MenuPage(QWidget):
             return
 
         mid = int(self.table.item(row, 0).text())
-        item = None
-
-        for m in self.adapter.get_menu():
-            if m.getId() == mid:
-                item = m
-                break
+        item = next((m for m in self.adapter.get_menu() if m.getId() == mid), None)
 
         win = EditMenuItemWindow(self.adapter, item, self)
         if win.exec_():

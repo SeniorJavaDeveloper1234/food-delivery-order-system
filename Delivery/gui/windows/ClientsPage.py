@@ -1,3 +1,5 @@
+
+
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QHBoxLayout
 from widgets.ClientTable import ClientTable
 from windows.AddClientWindow import AddClientWindow
@@ -9,21 +11,19 @@ class ClientsPage(QWidget):
         self.adapter = adapter
 
         self.table = ClientTable()
-        self.refresh_btn = QPushButton("Refresh List")
         self.add_btn = QPushButton("Add Client")
         self.edit_btn = QPushButton("Edit Client")
 
         top = QHBoxLayout()
-        top.addWidget(self.refresh_btn)
         top.addWidget(self.add_btn)
         top.addWidget(self.edit_btn)
+        top.addStretch()
 
         layout = QVBoxLayout()
         layout.addLayout(top)
         layout.addWidget(self.table)
         self.setLayout(layout)
 
-        self.refresh_btn.clicked.connect(self.load_clients)
         self.add_btn.clicked.connect(self.add_client)
         self.edit_btn.clicked.connect(self.edit_client)
 

@@ -1,10 +1,17 @@
-from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem
+
+
+from PyQt5.QtWidgets import QTableWidgetItem, QHeaderView, QTableWidget
 
 class MenuTable(QTableWidget):
     def __init__(self):
         super().__init__()
         self.setColumnCount(4)
-        self.setHorizontalHeaderLabels(["ID", "Name", "Description", "Price"])
+        self.setHorizontalHeaderLabels(["ID", "Name", "Description", "Price(UAH)"])
+
+        self.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.setSelectionBehavior(self.SelectRows)
+        self.setSelectionMode(self.SingleSelection)
+        self.setEditTriggers(self.NoEditTriggers)
 
     def update_data(self, items):
         self.setRowCount(len(items))

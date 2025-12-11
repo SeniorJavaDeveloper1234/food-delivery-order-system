@@ -1,3 +1,5 @@
+
+
 from PyQt5.QtWidgets import (
     QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
     QPushButton, QStackedWidget
@@ -15,7 +17,8 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.setWindowTitle("Food Delivery System")
-        self.setGeometry(200, 150, 1100, 700)
+
+
 
         self.adapter = DeliveryAdapter()
         self.stack = QStackedWidget()
@@ -30,10 +33,10 @@ class MainWindow(QMainWindow):
         for page in self.pages.values():
             self.stack.addWidget(page)
 
-        self.clients_btn = QPushButton("Clients")
-        self.couriers_btn = QPushButton("Couriers")
-        self.menu_btn = QPushButton("Menu")
-        self.orders_btn = QPushButton("Orders")
+        self.clients_btn = QPushButton("Клієнти")
+        self.couriers_btn = QPushButton("Курєри")
+        self.menu_btn = QPushButton("Меню")
+        self.orders_btn = QPushButton("Замовлення")
 
         self.clients_btn.clicked.connect(lambda: self.show_page("clients"))
         self.couriers_btn.clicked.connect(lambda: self.show_page("couriers"))
@@ -57,6 +60,9 @@ class MainWindow(QMainWindow):
         container = QWidget()
         container.setLayout(main_layout)
         self.setCentralWidget(container)
+
+ 
+        self.showMaximized()
 
         self.show_page("clients")
 

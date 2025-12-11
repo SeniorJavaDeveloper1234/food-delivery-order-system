@@ -220,6 +220,11 @@ Order* DeliverySystem::createOrder(int clientId, const std::vector<OrderItem>& i
     return list.empty() ? nullptr : const_cast<Order*>(&list.back());
 }
 
+std::vector<Order> DeliverySystem::getSortedOrders(OrderSortType type) const {
+    return orderRepo->getSorted(type);
+}
+
+
 bool DeliverySystem::completeOrder(int orderId) {
     Order* order = orderRepo->findById(orderId);
     if (!order) return false;

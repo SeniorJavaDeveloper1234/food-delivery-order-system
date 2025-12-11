@@ -8,8 +8,6 @@ class DeliveryAdapter:
     def save(self):
         self.ds.saveAll()
 
-    # -------- CLIENTS --------
-
     def get_clients(self):
         return self.ds.clients().getAll()
 
@@ -33,8 +31,6 @@ class DeliveryAdapter:
     def find_client(self, client_id):
         return self.ds.clients().findById(client_id)
 
-    # -------- COURIERS --------
-
     def get_couriers(self):
         return self.ds.couriers().getAll()
 
@@ -55,7 +51,6 @@ class DeliveryAdapter:
             self.save()
         return ok
 
-    # -------- MENU --------
 
     def get_menu(self):
         return self.ds.menu().getAll()
@@ -79,8 +74,6 @@ class DeliveryAdapter:
 
     def search_menu(self, part):
         return self.ds.menu().searchByName(part)
-
-    # -------- ORDERS --------
 
     def get_orders(self):
         return self.ds.orders().getAll()
@@ -133,3 +126,50 @@ class DeliveryAdapter:
 
     def calc_total(self, py_items):
         return sum(item["price"] * item["qty"] for item in py_items)
+
+
+    def sort_orders(self, method):
+        if method == "id":
+            return self.ds.getSortedOrders(OrderSortType.ById)
+
+        elif method == "client":
+            return self.ds.getSortedOrders(OrderSortType.ByClient)
+
+        elif method == "courier":
+            return self.ds.getSortedOrders(OrderSortType.ByCourier)
+
+        elif method == "total":
+            return self.ds.getSortedOrders(OrderSortType.ByTotal)
+
+        elif method == "created":
+            return self.ds.getSortedOrders(OrderSortType.ByCreated)
+
+        return self.get_orders()
+
+    def find_clients_by_name(self, text):
+        t = text.lower()
+        return [
+            c for c in self.ds.clients().getAll()
+            if t in c.getFirstName().lower() or t in c.getLastName().lower()
+        ]
+
+    def find_couriers_by_name(self, text):
+        t = text.lower()
+        return [
+            c for c in self.ds.couriers().getAll()
+            if t in c.getFirstName().lower() or t in c.getLastName().lower()
+        ]
+
+    def get_orders_by_client_name(self, text):
+        clients = self.find_clients_by_name(text)
+        orders = []
+        for c in clients:
+            orders += self.ds.getClientOrders(c.getId())
+        return orders
+
+    def get_orders_by_courier_name(self, text):
+        couriers = self.find_couriers_by_name(text)
+        orders = []
+        for c in couriers:
+            orders += self.ds.getCourierOrders(c.getId())
+        return orders

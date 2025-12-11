@@ -1,10 +1,17 @@
-﻿from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem
+﻿
+
+from PyQt5.QtWidgets import QTableWidgetItem, QHeaderView, QTableWidget
 
 class CourierTable(QTableWidget):
     def __init__(self):
         super().__init__()
         self.setColumnCount(5)
         self.setHorizontalHeaderLabels(["ID", "First Name", "Last Name", "Phone", "Available"])
+
+        self.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.setSelectionBehavior(self.SelectRows)
+        self.setSelectionMode(self.SingleSelection)
+        self.setEditTriggers(self.NoEditTriggers)
 
     def update_data(self, couriers):
         self.setRowCount(len(couriers))
