@@ -1,8 +1,6 @@
-﻿
-
-from PyQt5.QtWidgets import (
+﻿from PyQt5.QtWidgets import (
     QDialog, QVBoxLayout, QHBoxLayout, QLabel,
-    QLineEdit, QPushButton, QComboBox
+    QLineEdit, QPushButton, QComboBox, QMessageBox
 )
 import delivery
 
@@ -14,6 +12,8 @@ class EditOrderWindow(QDialog):
 
         self.setWindowTitle("Edit Order Status")
         self.setMinimumWidth(350)
+
+        self.deleted = False   
 
         self.id_field = QLineEdit(str(order.getId()))
         self.id_field.setReadOnly(True)
@@ -29,6 +29,7 @@ class EditOrderWindow(QDialog):
         self.status_box.setCurrentText(order.getStatusString())
 
         save_btn = QPushButton("Save")
+        delete_btn = QPushButton("Delete Order")   
         cancel_btn = QPushButton("Cancel")
 
         layout = QVBoxLayout()
@@ -43,12 +44,14 @@ class EditOrderWindow(QDialog):
 
         row = QHBoxLayout()
         row.addWidget(save_btn)
+        row.addWidget(delete_btn)
         row.addWidget(cancel_btn)
 
         layout.addLayout(row)
         self.setLayout(layout)
 
         save_btn.clicked.connect(self.save)
+        delete_btn.clicked.connect(self.delete_order)   
         cancel_btn.clicked.connect(self.reject)
 
     def save(self):
@@ -56,3 +59,23 @@ class EditOrderWindow(QDialog):
         enum_value = getattr(delivery.OrderStatus, new_status)
         self.adapter.update_order_status(self.order.getId(), enum_value)
         self.accept()
+
+    def delete_order(self):
+        oid = self.order.getId()
+
+        confirm = QMessageBox.question(
+            self,
+            "Delete Order",
+            f"Are you sure you want to delete order #{oid}?",
+            QMessageBox.Yes | QMessageBox.No
+        )
+
+        if confirm == QMessageBox.Yes:
+            ok = self.adapter.delete_order(oid)
+
+            if ok:
+                self.deleted = True   
+                QMessageBox.information(self, "Deleted", "Order deleted successfully.")
+                self.accept()
+            else:
+                QMessageBox.warning(self, "Error", "Failed to delete order.")

@@ -224,6 +224,14 @@ std::vector<Order> DeliverySystem::getSortedOrders(OrderSortType type) const {
     return orderRepo->getSorted(type);
 }
 
+bool DeliverySystem::deleteOrder(int id) {
+    bool ok = orderRepo->remove(id);
+    if (ok)
+        saveOrders();
+    return ok;
+}
+
+
 
 bool DeliverySystem::completeOrder(int orderId) {
     Order* order = orderRepo->findById(orderId);

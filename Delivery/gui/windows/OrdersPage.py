@@ -86,11 +86,13 @@ class OrdersPage(QWidget):
             return
 
         oid = int(self.table.item(row, 0).text())
-        order = next((o for o in self.adapter.get_orders() if o.getId() == oid), None)
+        order = next((o for o in self.orders if o.getId() == oid), None)
 
         win = EditOrderWindow(self.adapter, order, self)
+
         if win.exec_():
-            self.load_data()
+            self.load_data()  
+
 
 
     def do_search(self):

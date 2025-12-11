@@ -1,5 +1,6 @@
 #include "Order.h"
 #include <numeric> 
+#include <cmath>
 
 Order::Order(int id,
     int clientId,
@@ -41,7 +42,8 @@ const std::string& Order::getCreatedAt() const {
 }
 
 double Order::getTotalPrice() const {
-    return totalPrice;
+    return std::round(totalPrice * 100) / 100.0;
+
 }
 
 void Order::setId(int newId) {

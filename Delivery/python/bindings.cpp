@@ -220,6 +220,9 @@ PYBIND11_MODULE(delivery, m)
                 &DeliverySystem::createOrder),
             py::return_value_policy::reference)
 
+        .def("deleteOrder", &DeliverySystem::deleteOrder)
+
+
         .def("updateMenuItem", &DeliverySystem::updateMenuItem)
 
         .def("completeOrder", &DeliverySystem::completeOrder)

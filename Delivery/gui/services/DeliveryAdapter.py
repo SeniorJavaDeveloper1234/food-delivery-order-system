@@ -1,4 +1,6 @@
 import delivery
+from delivery import OrderSortType
+
 
 class DeliveryAdapter:
 
@@ -111,6 +113,13 @@ class DeliveryAdapter:
         if ok:
             self.save()
         return ok
+
+    def delete_order(self, order_id):
+        ok = self.ds.deleteOrder(order_id)
+        if ok:
+            self.save()
+        return ok
+
 
     def complete_order(self, order_id):
         ok = self.ds.completeOrder(order_id)

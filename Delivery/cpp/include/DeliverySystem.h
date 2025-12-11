@@ -68,6 +68,7 @@ public:
     Order* createOrder(int clientId, const std::vector<int>& itemIds);
     Order* createOrder(int clientId, const std::vector<OrderItem>& items);
     std::vector<Order> getSortedOrders(OrderSortType type) const;
+    bool deleteOrder(int id);
 
 
     bool completeOrder(int orderId);
