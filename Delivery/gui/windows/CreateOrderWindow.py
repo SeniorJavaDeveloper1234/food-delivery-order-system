@@ -1,6 +1,4 @@
-﻿
-
-from PyQt5.QtWidgets import (
+﻿from PyQt5.QtWidgets import (
     QDialog, QVBoxLayout, QHBoxLayout, QLabel, QPushButton,
     QComboBox, QSpinBox, QListWidget, QMessageBox
 )
@@ -109,7 +107,8 @@ class CreateOrderWindow(QDialog):
     def refresh_cart(self):
         self.cart_list.clear()
         for _, name, price, qty in self.cart:
-            self.cart_list.addItem(f"{name} x{qty} — {price * qty}")
+            total = round(price * qty, 2)
+            self.cart_list.addItem(f"{name} x{qty} — {total}")
 
     def finish(self):
         if not self.cart:

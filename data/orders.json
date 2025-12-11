@@ -1,1008 +1,1126 @@
 [
-  {
-    "id": 1,
-    "clientId": 84,
-    "courierId": 13,
-    "createdAt": "2025-01-28 09:12",
-    "items": [
-      {
-        "menuItemId": 18,
-        "name": "Onion Rings",
-        "unitPrice": 129.68,
-        "quantity": 1
-      },
-      {
-        "menuItemId": 36,
-        "name": "Taco Beef",
-        "unitPrice": 80.85,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 16,
-        "name": "Vegan Burger",
-        "unitPrice": 143.31,
-        "quantity": 2
-      }
-    ],
-    "status": 4,
-    "totalPrice": 658.85
-  },
-  {
-    "id": 2,
-    "clientId": 78,
-    "courierId": 10,
-    "createdAt": "2025-01-13 23:13",
-    "items": [
-      {
-        "menuItemId": 49,
-        "name": "Tea Black",
-        "unitPrice": 312.55,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 27,
-        "name": "Sushi Set Premium",
-        "unitPrice": 101.91,
-        "quantity": 3
-      }
-    ],
-    "status": 3,
-    "totalPrice": 930.83
-  },
-  {
-    "id": 3,
-    "clientId": 32,
-    "courierId": 18,
-    "createdAt": "2025-01-26 00:27",
-    "items": [
-      {
-        "menuItemId": 25,
-        "name": "Pasta Alfredo",
-        "unitPrice": 446.63,
-        "quantity": 2
-      }
-    ],
-    "status": 0,
-    "totalPrice": 893.26
-  },
-  {
-    "id": 4,
-    "clientId": 3,
-    "courierId": 17,
-    "createdAt": "2025-01-11 07:34",
-    "items": [
-      {
-        "menuItemId": 21,
-        "name": "Steak Plate",
-        "unitPrice": 197.13,
-        "quantity": 2
-      }
-    ],
-    "status": 0,
-    "totalPrice": 394.26
-  },
-  {
-    "id": 5,
-    "clientId": 1,
-    "courierId": 20,
-    "createdAt": "2025-01-06 01:30",
-    "items": [
-      {
-        "menuItemId": 6,
-        "name": "Veggie Pizza",
-        "unitPrice": 184.71,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 16,
-        "name": "Vegan Burger",
-        "unitPrice": 143.31,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 4,
-        "name": "Hawaiian Pizza",
-        "unitPrice": 274.71,
-        "quantity": 2
-      }
-    ],
-    "status": 3,
-    "totalPrice": 1205.46
-  },
-  {
-    "id": 6,
-    "clientId": 86,
-    "courierId": 20,
-    "createdAt": "2025-01-20 05:58",
-    "items": [
-      {
-        "menuItemId": 10,
-        "name": "Greek Salad",
-        "unitPrice": 425.55,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 15,
-        "name": "Chicken Burger",
-        "unitPrice": 150.58,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 48,
-        "name": "Espresso",
-        "unitPrice": 385.73,
-        "quantity": 2
-      }
-    ],
-    "status": 3,
-    "totalPrice": 2349.27
-  },
-  {
-    "id": 7,
-    "clientId": 3,
-    "courierId": 8,
-    "createdAt": "2025-01-15 08:30",
-    "items": [
-      {
-        "menuItemId": 35,
-        "name": "Soup Miso",
-        "unitPrice": 100.5,
-        "quantity": 1
-      },
-      {
-        "menuItemId": 34,
-        "name": "Soup Tom Yum",
-        "unitPrice": 104.29,
-        "quantity": 2
-      }
-    ],
-    "status": 1,
-    "totalPrice": 309.08
-  },
-  {
-    "id": 8,
-    "clientId": 27,
-    "courierId": 17,
-    "createdAt": "2025-01-18 17:25",
-    "items": [
-      {
-        "menuItemId": 50,
-        "name": "Tea Green",
-        "unitPrice": 310.39,
-        "quantity": 2
-      }
-    ],
-    "status": 3,
-    "totalPrice": 620.78
-  },
-  {
-    "id": 9,
-    "clientId": 12,
-    "courierId": 7,
-    "createdAt": "2025-01-08 01:15",
-    "items": [
-      {
-        "menuItemId": 43,
-        "name": "Tiramisu",
-        "unitPrice": 369.71,
-        "quantity": 1
-      },
-      {
-        "menuItemId": 15,
-        "name": "Chicken Burger",
-        "unitPrice": 150.58,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 39,
-        "name": "Quesadilla",
-        "unitPrice": 92.6,
-        "quantity": 3
-      }
-    ],
-    "status": 0,
-    "totalPrice": 1099.25
-  },
-  {
-    "id": 10,
-    "clientId": 27,
-    "courierId": 9,
-    "createdAt": "2025-01-22 02:38",
-    "items": [
-      {
-        "menuItemId": 10,
-        "name": "Greek Salad",
-        "unitPrice": 425.55,
-        "quantity": 1
-      },
-      {
-        "menuItemId": 35,
-        "name": "Soup Miso",
-        "unitPrice": 100.5,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 31,
-        "name": "Ramen Chicken",
-        "unitPrice": 167.55,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 19,
-        "name": "Chicken Nuggets",
-        "unitPrice": 203.76,
-        "quantity": 3
-      }
-    ],
-    "status": 2,
-    "totalPrice": 1572.93
-  },
-  {
-    "id": 11,
-    "clientId": 50,
-    "courierId": 17,
-    "createdAt": "2025-01-02 08:31",
-    "items": [
-      {
-        "menuItemId": 9,
-        "name": "Caesar Salad",
-        "unitPrice": 320.98,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 43,
-        "name": "Tiramisu",
-        "unitPrice": 369.71,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 37,
-        "name": "Taco Chicken",
-        "unitPrice": 89.07,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 1,
-        "name": "Margherita Pizza",
-        "unitPrice": 104.49,
-        "quantity": 2
-      }
-    ],
-    "status": 3,
-    "totalPrice": 2459.19
-  },
-  {
-    "id": 12,
-    "clientId": 14,
-    "courierId": 20,
-    "createdAt": "2025-01-18 06:12",
-    "items": [
-      {
-        "menuItemId": 3,
-        "name": "Four Cheese Pizza",
-        "unitPrice": 430.95,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 29,
-        "name": "California Roll",
-        "unitPrice": 424.23,
-        "quantity": 1
-      }
-    ],
-    "status": 3,
-    "totalPrice": 1286.13
-  },
-  {
-    "id": 13,
-    "clientId": 39,
-    "courierId": 24,
-    "createdAt": "2025-01-05 20:50",
-    "items": [
-      {
-        "menuItemId": 46,
-        "name": "Latte",
-        "unitPrice": 404.42,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 18,
-        "name": "Onion Rings",
-        "unitPrice": 129.68,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 50,
-        "name": "Tea Green",
-        "unitPrice": 310.39,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 11,
-        "name": "Chicken Salad",
-        "unitPrice": 118.35,
-        "quantity": 1
-      }
-    ],
-    "status": 3,
-    "totalPrice": 2341.43
-  },
-  {
-    "id": 14,
-    "clientId": 76,
-    "courierId": 19,
-    "createdAt": "2025-01-17 17:50",
-    "items": [
-      {
-        "menuItemId": 35,
-        "name": "Soup Miso",
-        "unitPrice": 100.5,
-        "quantity": 3
-      }
-    ],
-    "status": 4,
-    "totalPrice": 301.5
-  },
-  {
-    "id": 15,
-    "clientId": 1,
-    "courierId": 9,
-    "createdAt": "2025-01-24 00:29",
-    "items": [
-      {
-        "menuItemId": 22,
-        "name": "Fish & Chips",
-        "unitPrice": 194.33,
-        "quantity": 3
-      }
-    ],
-    "status": 4,
-    "totalPrice": 582.99
-  },
-  {
-    "id": 16,
-    "clientId": 28,
-    "courierId": 25,
-    "createdAt": "2025-01-31 11:16",
-    "items": [
-      {
-        "menuItemId": 23,
-        "name": "Pasta Carbonara",
-        "unitPrice": 364.5,
-        "quantity": 2
-      }
-    ],
-    "status": 4,
-    "totalPrice": 729.0
-  },
-  {
-    "id": 17,
-    "clientId": 74,
-    "courierId": 14,
-    "createdAt": "2025-01-31 09:35",
-    "items": [
-      {
-        "menuItemId": 11,
-        "name": "Chicken Salad",
-        "unitPrice": 118.35,
-        "quantity": 1
-      }
-    ],
-    "status": 1,
-    "totalPrice": 118.35
-  },
-  {
-    "id": 18,
-    "clientId": 90,
-    "courierId": 7,
-    "createdAt": "2025-01-25 23:20",
-    "items": [
-      {
-        "menuItemId": 12,
-        "name": "Tuna Salad",
-        "unitPrice": 141.68,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 19,
-        "name": "Chicken Nuggets",
-        "unitPrice": 203.76,
-        "quantity": 1
-      }
-    ],
-    "status": 4,
-    "totalPrice": 487.12
-  },
-  {
-    "id": 19,
-    "clientId": 73,
-    "courierId": 25,
-    "createdAt": "2025-01-13 13:07",
-    "items": [
-      {
-        "menuItemId": 31,
-        "name": "Ramen Chicken",
-        "unitPrice": 167.55,
-        "quantity": 1
-      },
-      {
-        "menuItemId": 11,
-        "name": "Chicken Salad",
-        "unitPrice": 118.35,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 35,
-        "name": "Soup Miso",
-        "unitPrice": 100.5,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 38,
-        "name": "Burrito",
-        "unitPrice": 404.9,
-        "quantity": 3
-      }
-    ],
-    "status": 2,
-    "totalPrice": 1819.95
-  },
-  {
-    "id": 20,
-    "clientId": 33,
-    "courierId": 12,
-    "createdAt": "2025-01-30 02:04",
-    "items": [
-      {
-        "menuItemId": 16,
-        "name": "Vegan Burger",
-        "unitPrice": 143.31,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 14,
-        "name": "Double Cheeseburger",
-        "unitPrice": 439.17,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 33,
-        "name": "Ramen Spicy",
-        "unitPrice": 228.42,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 32,
-        "name": "Ramen Pork",
-        "unitPrice": 268.19,
-        "quantity": 3
-      }
-    ],
-    "status": 3,
-    "totalPrice": 3237.27
-  },
-  {
-    "id": 21,
-    "clientId": 20,
-    "courierId": 18,
-    "createdAt": "2025-01-19 16:24",
-    "items": [
-      {
-        "menuItemId": 47,
-        "name": "Cappuccino",
-        "unitPrice": 329.08,
-        "quantity": 1
-      },
-      {
-        "menuItemId": 50,
-        "name": "Tea Green",
-        "unitPrice": 310.39,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 42,
-        "name": "Cheesecake",
-        "unitPrice": 263.54,
-        "quantity": 3
-      }
-    ],
-    "status": 4,
-    "totalPrice": 2050.87
-  },
-  {
-    "id": 22,
-    "clientId": 88,
-    "courierId": 12,
-    "createdAt": "2025-01-15 05:04",
-    "items": [
-      {
-        "menuItemId": 32,
-        "name": "Ramen Pork",
-        "unitPrice": 268.19,
-        "quantity": 1
-      },
-      {
-        "menuItemId": 42,
-        "name": "Cheesecake",
-        "unitPrice": 263.54,
-        "quantity": 2
-      }
-    ],
-    "status": 0,
-    "totalPrice": 795.27
-  },
-  {
-    "id": 23,
-    "clientId": 95,
-    "courierId": 11,
-    "createdAt": "2025-01-03 20:43",
-    "items": [
-      {
-        "menuItemId": 40,
-        "name": "Nachos",
-        "unitPrice": 390.11,
-        "quantity": 1
-      }
-    ],
-    "status": 0,
-    "totalPrice": 390.11
-  },
-  {
-    "id": 24,
-    "clientId": 88,
-    "courierId": 1,
-    "createdAt": "2025-01-03 18:05",
-    "items": [
-      {
-        "menuItemId": 34,
-        "name": "Soup Tom Yum",
-        "unitPrice": 104.29,
-        "quantity": 2
-      }
-    ],
-    "status": 4,
-    "totalPrice": 208.58
-  },
-  {
-    "id": 25,
-    "clientId": 57,
-    "courierId": 6,
-    "createdAt": "2025-01-04 09:38",
-    "items": [
-      {
-        "menuItemId": 7,
-        "name": "Meat Deluxe Pizza",
-        "unitPrice": 234.66,
-        "quantity": 3
-      }
-    ],
-    "status": 4,
-    "totalPrice": 703.98
-  },
-  {
-    "id": 26,
-    "clientId": 32,
-    "courierId": 1,
-    "createdAt": "2025-01-14 09:27",
-    "items": [
-      {
-        "menuItemId": 16,
-        "name": "Vegan Burger",
-        "unitPrice": 143.31,
-        "quantity": 1
-      },
-      {
-        "menuItemId": 42,
-        "name": "Cheesecake",
-        "unitPrice": 263.54,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 26,
-        "name": "Sushi Set Classic",
-        "unitPrice": 123.49,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 18,
-        "name": "Onion Rings",
-        "unitPrice": 129.68,
-        "quantity": 2
-      }
-    ],
-    "status": 3,
-    "totalPrice": 1563.76
-  },
-  {
-    "id": 27,
-    "clientId": 73,
-    "courierId": 23,
-    "createdAt": "2025-01-26 10:25",
-    "items": [
-      {
-        "menuItemId": 13,
-        "name": "Cheeseburger",
-        "unitPrice": 377.63,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 20,
-        "name": "Grilled Chicken",
-        "unitPrice": 280.16,
-        "quantity": 3
-      }
-    ],
-    "status": 0,
-    "totalPrice": 1595.74
-  },
-  {
-    "id": 28,
-    "clientId": 30,
-    "courierId": 21,
-    "createdAt": "2025-01-18 19:22",
-    "items": [
-      {
-        "menuItemId": 33,
-        "name": "Ramen Spicy",
-        "unitPrice": 228.42,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 5,
-        "name": "BBQ Chicken Pizza",
-        "unitPrice": 145.73,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 25,
-        "name": "Pasta Alfredo",
-        "unitPrice": 446.63,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 39,
-        "name": "Quesadilla",
-        "unitPrice": 92.6,
-        "quantity": 2
-      }
-    ],
-    "status": 2,
-    "totalPrice": 2055.18
-  },
-  {
-    "id": 29,
-    "clientId": 69,
-    "courierId": 16,
-    "createdAt": "2025-01-18 00:15",
-    "items": [
-      {
-        "menuItemId": 19,
-        "name": "Chicken Nuggets",
-        "unitPrice": 203.76,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 31,
-        "name": "Ramen Chicken",
-        "unitPrice": 167.55,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 1,
-        "name": "Margherita Pizza",
-        "unitPrice": 104.49,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 43,
-        "name": "Tiramisu",
-        "unitPrice": 369.71,
-        "quantity": 2
-      }
-    ],
-    "status": 4,
-    "totalPrice": 1999.27
-  },
-  {
-    "id": 30,
-    "clientId": 7,
-    "courierId": 16,
-    "createdAt": "2025-01-30 23:43",
-    "items": [
-      {
-        "menuItemId": 30,
-        "name": "Tempura Roll",
-        "unitPrice": 180.35,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 29,
-        "name": "California Roll",
-        "unitPrice": 424.23,
-        "quantity": 1
-      },
-      {
-        "menuItemId": 10,
-        "name": "Greek Salad",
-        "unitPrice": 425.55,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 50,
-        "name": "Tea Green",
-        "unitPrice": 310.39,
-        "quantity": 1
-      }
-    ],
-    "status": 2,
-    "totalPrice": 2552.32
-  },
-  {
-    "id": 31,
-    "clientId": 72,
-    "courierId": 7,
-    "createdAt": "2025-01-28 07:16",
-    "items": [
-      {
-        "menuItemId": 27,
-        "name": "Sushi Set Premium",
-        "unitPrice": 101.91,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 41,
-        "name": "Chocolate Cake",
-        "unitPrice": 373.24,
-        "quantity": 3
-      }
-    ],
-    "status": 1,
-    "totalPrice": 1425.45
-  },
-  {
-    "id": 32,
-    "clientId": 57,
-    "courierId": 23,
-    "createdAt": "2025-01-07 13:41",
-    "items": [
-      {
-        "menuItemId": 25,
-        "name": "Pasta Alfredo",
-        "unitPrice": 446.63,
-        "quantity": 1
-      },
-      {
-        "menuItemId": 17,
-        "name": "French Fries",
-        "unitPrice": 371.77,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 8,
-        "name": "Seafood Pizza",
-        "unitPrice": 321.57,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 27,
-        "name": "Sushi Set Premium",
-        "unitPrice": 101.91,
-        "quantity": 1
-      }
-    ],
-    "status": 3,
-    "totalPrice": 2256.79
-  },
-  {
-    "id": 33,
-    "clientId": 29,
-    "courierId": 4,
-    "createdAt": "2025-01-25 03:16",
-    "items": [
-      {
-        "menuItemId": 10,
-        "name": "Greek Salad",
-        "unitPrice": 425.55,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 4,
-        "name": "Hawaiian Pizza",
-        "unitPrice": 274.71,
-        "quantity": 1
-      }
-    ],
-    "status": 1,
-    "totalPrice": 1125.81
-  },
-  {
-    "id": 34,
-    "clientId": 37,
-    "courierId": 20,
-    "createdAt": "2025-01-21 08:28",
-    "items": [
-      {
-        "menuItemId": 13,
-        "name": "Cheeseburger",
-        "unitPrice": 377.63,
-        "quantity": 1
-      },
-      {
-        "menuItemId": 18,
-        "name": "Onion Rings",
-        "unitPrice": 129.68,
-        "quantity": 2
-      }
-    ],
-    "status": 1,
-    "totalPrice": 636.99
-  },
-  {
-    "id": 35,
-    "clientId": 14,
-    "courierId": 15,
-    "createdAt": "2025-01-09 20:14",
-    "items": [
-      {
-        "menuItemId": 31,
-        "name": "Ramen Chicken",
-        "unitPrice": 167.55,
-        "quantity": 1
-      },
-      {
-        "menuItemId": 8,
-        "name": "Seafood Pizza",
-        "unitPrice": 321.57,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 33,
-        "name": "Ramen Spicy",
-        "unitPrice": 228.42,
-        "quantity": 1
-      }
-    ],
-    "status": 0,
-    "totalPrice": 1360.68
-  },
-  {
-    "id": 36,
-    "clientId": 18,
-    "courierId": 19,
-    "createdAt": "2025-01-28 06:52",
-    "items": [
-      {
-        "menuItemId": 6,
-        "name": "Veggie Pizza",
-        "unitPrice": 184.71,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 6,
-        "name": "Veggie Pizza",
-        "unitPrice": 184.71,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 20,
-        "name": "Grilled Chicken",
-        "unitPrice": 280.16,
-        "quantity": 3
-      }
-    ],
-    "status": 0,
-    "totalPrice": 1764.03
-  },
-  {
-    "id": 37,
-    "clientId": 34,
-    "courierId": 23,
-    "createdAt": "2025-01-10 04:09",
-    "items": [
-      {
-        "menuItemId": 33,
-        "name": "Ramen Spicy",
-        "unitPrice": 228.42,
-        "quantity": 1
-      },
-      {
-        "menuItemId": 9,
-        "name": "Caesar Salad",
-        "unitPrice": 320.98,
-        "quantity": 1
-      },
-      {
-        "menuItemId": 43,
-        "name": "Tiramisu",
-        "unitPrice": 369.71,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 8,
-        "name": "Seafood Pizza",
-        "unitPrice": 321.57,
-        "quantity": 1
-      }
-    ],
-    "status": 2,
-    "totalPrice": 1980.1
-  },
-  {
-    "id": 38,
-    "clientId": 11,
-    "courierId": 15,
-    "createdAt": "2025-01-15 14:05",
-    "items": [
-      {
-        "menuItemId": 38,
-        "name": "Burrito",
-        "unitPrice": 404.9,
-        "quantity": 2
-      }
-    ],
-    "status": 0,
-    "totalPrice": 809.8
-  },
-  {
-    "id": 39,
-    "clientId": 12,
-    "courierId": 4,
-    "createdAt": "2025-01-01 10:34",
-    "items": [
-      {
-        "menuItemId": 24,
-        "name": "Pasta Bolognese",
-        "unitPrice": 98.57,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 15,
-        "name": "Chicken Burger",
-        "unitPrice": 150.58,
-        "quantity": 2
-      },
-      {
-        "menuItemId": 13,
-        "name": "Cheeseburger",
-        "unitPrice": 377.63,
-        "quantity": 2
-      }
-    ],
-    "status": 0,
-    "totalPrice": 1253.56
-  },
-  {
-    "id": 40,
-    "clientId": 28,
-    "courierId": 5,
-    "createdAt": "2025-01-09 23:37",
-    "items": [
-      {
-        "menuItemId": 37,
-        "name": "Taco Chicken",
-        "unitPrice": 89.07,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 3,
-        "name": "Four Cheese Pizza",
-        "unitPrice": 430.95,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 32,
-        "name": "Ramen Pork",
-        "unitPrice": 268.19,
-        "quantity": 3
-      },
-      {
-        "menuItemId": 6,
-        "name": "Veggie Pizza",
-        "unitPrice": 184.71,
-        "quantity": 2
-      }
-    ],
-    "status": 3,
-    "totalPrice": 2734.05
-  }
+    {
+        "clientId": 84,
+        "courierId": 13,
+        "createdAt": "2025-01-28 09:12",
+        "id": 1,
+        "items": [
+            {
+                "menuItemId": 18,
+                "name": "Onion Rings",
+                "quantity": 1,
+                "totalPrice": 129.68,
+                "unitPrice": 129.68
+            },
+            {
+                "menuItemId": 36,
+                "name": "Taco Beef",
+                "quantity": 3,
+                "totalPrice": 242.54999999999998,
+                "unitPrice": 80.85
+            },
+            {
+                "menuItemId": 16,
+                "name": "Vegan Burger",
+                "quantity": 2,
+                "totalPrice": 286.62,
+                "unitPrice": 143.31
+            }
+        ],
+        "status": 4,
+        "totalPrice": 658.85
+    },
+    {
+        "clientId": 78,
+        "courierId": 10,
+        "createdAt": "2025-01-13 23:13",
+        "id": 2,
+        "items": [
+            {
+                "menuItemId": 49,
+                "name": "Tea Black",
+                "quantity": 2,
+                "totalPrice": 625.1,
+                "unitPrice": 312.55
+            },
+            {
+                "menuItemId": 27,
+                "name": "Sushi Set Premium",
+                "quantity": 3,
+                "totalPrice": 305.73,
+                "unitPrice": 101.91
+            }
+        ],
+        "status": 3,
+        "totalPrice": 930.83
+    },
+    {
+        "clientId": 32,
+        "courierId": 18,
+        "createdAt": "2025-01-26 00:27",
+        "id": 3,
+        "items": [
+            {
+                "menuItemId": 25,
+                "name": "Pasta Alfredo",
+                "quantity": 2,
+                "totalPrice": 893.26,
+                "unitPrice": 446.63
+            }
+        ],
+        "status": 0,
+        "totalPrice": 893.26
+    },
+    {
+        "clientId": 3,
+        "courierId": 17,
+        "createdAt": "2025-01-11 07:34",
+        "id": 4,
+        "items": [
+            {
+                "menuItemId": 21,
+                "name": "Steak Plate",
+                "quantity": 2,
+                "totalPrice": 394.26,
+                "unitPrice": 197.13
+            }
+        ],
+        "status": 0,
+        "totalPrice": 394.26
+    },
+    {
+        "clientId": 1,
+        "courierId": 20,
+        "createdAt": "2025-01-06 01:30",
+        "id": 5,
+        "items": [
+            {
+                "menuItemId": 6,
+                "name": "Veggie Pizza",
+                "quantity": 2,
+                "totalPrice": 369.42,
+                "unitPrice": 184.71
+            },
+            {
+                "menuItemId": 16,
+                "name": "Vegan Burger",
+                "quantity": 2,
+                "totalPrice": 286.62,
+                "unitPrice": 143.31
+            },
+            {
+                "menuItemId": 4,
+                "name": "Hawaiian Pizza",
+                "quantity": 2,
+                "totalPrice": 549.42,
+                "unitPrice": 274.71
+            }
+        ],
+        "status": 3,
+        "totalPrice": 1205.46
+    },
+    {
+        "clientId": 86,
+        "courierId": 20,
+        "createdAt": "2025-01-20 05:58",
+        "id": 6,
+        "items": [
+            {
+                "menuItemId": 10,
+                "name": "Greek Salad",
+                "quantity": 3,
+                "totalPrice": 1276.65,
+                "unitPrice": 425.55
+            },
+            {
+                "menuItemId": 15,
+                "name": "Chicken Burger",
+                "quantity": 2,
+                "totalPrice": 301.16,
+                "unitPrice": 150.58
+            },
+            {
+                "menuItemId": 48,
+                "name": "Espresso",
+                "quantity": 2,
+                "totalPrice": 771.46,
+                "unitPrice": 385.73
+            }
+        ],
+        "status": 3,
+        "totalPrice": 2349.27
+    },
+    {
+        "clientId": 3,
+        "courierId": 8,
+        "createdAt": "2025-01-15 08:30",
+        "id": 7,
+        "items": [
+            {
+                "menuItemId": 35,
+                "name": "Soup Miso",
+                "quantity": 1,
+                "totalPrice": 100.5,
+                "unitPrice": 100.5
+            },
+            {
+                "menuItemId": 34,
+                "name": "Soup Tom Yum",
+                "quantity": 2,
+                "totalPrice": 208.58,
+                "unitPrice": 104.29
+            }
+        ],
+        "status": 1,
+        "totalPrice": 309.08
+    },
+    {
+        "clientId": 27,
+        "courierId": 17,
+        "createdAt": "2025-01-18 17:25",
+        "id": 8,
+        "items": [
+            {
+                "menuItemId": 50,
+                "name": "Tea Green",
+                "quantity": 2,
+                "totalPrice": 620.78,
+                "unitPrice": 310.39
+            }
+        ],
+        "status": 3,
+        "totalPrice": 620.78
+    },
+    {
+        "clientId": 12,
+        "courierId": 7,
+        "createdAt": "2025-01-08 01:15",
+        "id": 9,
+        "items": [
+            {
+                "menuItemId": 43,
+                "name": "Tiramisu",
+                "quantity": 1,
+                "totalPrice": 369.71,
+                "unitPrice": 369.71
+            },
+            {
+                "menuItemId": 15,
+                "name": "Chicken Burger",
+                "quantity": 3,
+                "totalPrice": 451.74,
+                "unitPrice": 150.58
+            },
+            {
+                "menuItemId": 39,
+                "name": "Quesadilla",
+                "quantity": 3,
+                "totalPrice": 277.79999999999995,
+                "unitPrice": 92.6
+            }
+        ],
+        "status": 0,
+        "totalPrice": 1099.25
+    },
+    {
+        "clientId": 27,
+        "courierId": 9,
+        "createdAt": "2025-01-22 02:38",
+        "id": 10,
+        "items": [
+            {
+                "menuItemId": 10,
+                "name": "Greek Salad",
+                "quantity": 1,
+                "totalPrice": 425.55,
+                "unitPrice": 425.55
+            },
+            {
+                "menuItemId": 35,
+                "name": "Soup Miso",
+                "quantity": 2,
+                "totalPrice": 201.0,
+                "unitPrice": 100.5
+            },
+            {
+                "menuItemId": 31,
+                "name": "Ramen Chicken",
+                "quantity": 2,
+                "totalPrice": 335.1,
+                "unitPrice": 167.55
+            },
+            {
+                "menuItemId": 19,
+                "name": "Chicken Nuggets",
+                "quantity": 3,
+                "totalPrice": 611.28,
+                "unitPrice": 203.76
+            }
+        ],
+        "status": 2,
+        "totalPrice": 1572.93
+    },
+    {
+        "clientId": 50,
+        "courierId": 17,
+        "createdAt": "2025-01-02 08:31",
+        "id": 11,
+        "items": [
+            {
+                "menuItemId": 9,
+                "name": "Caesar Salad",
+                "quantity": 3,
+                "totalPrice": 962.94,
+                "unitPrice": 320.98
+            },
+            {
+                "menuItemId": 43,
+                "name": "Tiramisu",
+                "quantity": 3,
+                "totalPrice": 1109.1299999999999,
+                "unitPrice": 369.71
+            },
+            {
+                "menuItemId": 37,
+                "name": "Taco Chicken",
+                "quantity": 2,
+                "totalPrice": 178.14,
+                "unitPrice": 89.07
+            },
+            {
+                "menuItemId": 1,
+                "name": "Margherita Pizza",
+                "quantity": 2,
+                "totalPrice": 208.98,
+                "unitPrice": 104.49
+            }
+        ],
+        "status": 3,
+        "totalPrice": 2459.19
+    },
+    {
+        "clientId": 14,
+        "courierId": 20,
+        "createdAt": "2025-01-18 06:12",
+        "id": 12,
+        "items": [
+            {
+                "menuItemId": 3,
+                "name": "Four Cheese Pizza",
+                "quantity": 2,
+                "totalPrice": 861.9,
+                "unitPrice": 430.95
+            },
+            {
+                "menuItemId": 29,
+                "name": "California Roll",
+                "quantity": 1,
+                "totalPrice": 424.23,
+                "unitPrice": 424.23
+            }
+        ],
+        "status": 3,
+        "totalPrice": 1286.13
+    },
+    {
+        "clientId": 39,
+        "courierId": 24,
+        "createdAt": "2025-01-05 20:50",
+        "id": 13,
+        "items": [
+            {
+                "menuItemId": 46,
+                "name": "Latte",
+                "quantity": 3,
+                "totalPrice": 1213.26,
+                "unitPrice": 404.42
+            },
+            {
+                "menuItemId": 18,
+                "name": "Onion Rings",
+                "quantity": 3,
+                "totalPrice": 389.04,
+                "unitPrice": 129.68
+            },
+            {
+                "menuItemId": 50,
+                "name": "Tea Green",
+                "quantity": 2,
+                "totalPrice": 620.78,
+                "unitPrice": 310.39
+            },
+            {
+                "menuItemId": 11,
+                "name": "Chicken Salad",
+                "quantity": 1,
+                "totalPrice": 118.35,
+                "unitPrice": 118.35
+            }
+        ],
+        "status": 3,
+        "totalPrice": 2341.43
+    },
+    {
+        "clientId": 76,
+        "courierId": 19,
+        "createdAt": "2025-01-17 17:50",
+        "id": 14,
+        "items": [
+            {
+                "menuItemId": 35,
+                "name": "Soup Miso",
+                "quantity": 3,
+                "totalPrice": 301.5,
+                "unitPrice": 100.5
+            }
+        ],
+        "status": 4,
+        "totalPrice": 301.5
+    },
+    {
+        "clientId": 1,
+        "courierId": 9,
+        "createdAt": "2025-01-24 00:29",
+        "id": 15,
+        "items": [
+            {
+                "menuItemId": 22,
+                "name": "Fish & Chips",
+                "quantity": 3,
+                "totalPrice": 582.99,
+                "unitPrice": 194.33
+            }
+        ],
+        "status": 4,
+        "totalPrice": 582.99
+    },
+    {
+        "clientId": 28,
+        "courierId": 25,
+        "createdAt": "2025-01-31 11:16",
+        "id": 16,
+        "items": [
+            {
+                "menuItemId": 23,
+                "name": "Pasta Carbonara",
+                "quantity": 2,
+                "totalPrice": 729.0,
+                "unitPrice": 364.5
+            }
+        ],
+        "status": 4,
+        "totalPrice": 729.0
+    },
+    {
+        "clientId": 74,
+        "courierId": 14,
+        "createdAt": "2025-01-31 09:35",
+        "id": 17,
+        "items": [
+            {
+                "menuItemId": 11,
+                "name": "Chicken Salad",
+                "quantity": 1,
+                "totalPrice": 118.35,
+                "unitPrice": 118.35
+            }
+        ],
+        "status": 1,
+        "totalPrice": 118.35
+    },
+    {
+        "clientId": 90,
+        "courierId": 7,
+        "createdAt": "2025-01-25 23:20",
+        "id": 18,
+        "items": [
+            {
+                "menuItemId": 12,
+                "name": "Tuna Salad",
+                "quantity": 2,
+                "totalPrice": 283.36,
+                "unitPrice": 141.68
+            },
+            {
+                "menuItemId": 19,
+                "name": "Chicken Nuggets",
+                "quantity": 1,
+                "totalPrice": 203.76,
+                "unitPrice": 203.76
+            }
+        ],
+        "status": 4,
+        "totalPrice": 487.12
+    },
+    {
+        "clientId": 73,
+        "courierId": 25,
+        "createdAt": "2025-01-13 13:07",
+        "id": 19,
+        "items": [
+            {
+                "menuItemId": 31,
+                "name": "Ramen Chicken",
+                "quantity": 1,
+                "totalPrice": 167.55,
+                "unitPrice": 167.55
+            },
+            {
+                "menuItemId": 11,
+                "name": "Chicken Salad",
+                "quantity": 2,
+                "totalPrice": 236.7,
+                "unitPrice": 118.35
+            },
+            {
+                "menuItemId": 35,
+                "name": "Soup Miso",
+                "quantity": 2,
+                "totalPrice": 201.0,
+                "unitPrice": 100.5
+            },
+            {
+                "menuItemId": 38,
+                "name": "Burrito",
+                "quantity": 3,
+                "totalPrice": 1214.6999999999998,
+                "unitPrice": 404.9
+            }
+        ],
+        "status": 2,
+        "totalPrice": 1819.95
+    },
+    {
+        "clientId": 33,
+        "courierId": 12,
+        "createdAt": "2025-01-30 02:04",
+        "id": 20,
+        "items": [
+            {
+                "menuItemId": 16,
+                "name": "Vegan Burger",
+                "quantity": 3,
+                "totalPrice": 429.93,
+                "unitPrice": 143.31
+            },
+            {
+                "menuItemId": 14,
+                "name": "Double Cheeseburger",
+                "quantity": 3,
+                "totalPrice": 1317.51,
+                "unitPrice": 439.17
+            },
+            {
+                "menuItemId": 33,
+                "name": "Ramen Spicy",
+                "quantity": 3,
+                "totalPrice": 685.26,
+                "unitPrice": 228.42
+            },
+            {
+                "menuItemId": 32,
+                "name": "Ramen Pork",
+                "quantity": 3,
+                "totalPrice": 804.5699999999999,
+                "unitPrice": 268.19
+            }
+        ],
+        "status": 3,
+        "totalPrice": 3237.27
+    },
+    {
+        "clientId": 20,
+        "courierId": 18,
+        "createdAt": "2025-01-19 16:24",
+        "id": 21,
+        "items": [
+            {
+                "menuItemId": 47,
+                "name": "Cappuccino",
+                "quantity": 1,
+                "totalPrice": 329.08,
+                "unitPrice": 329.08
+            },
+            {
+                "menuItemId": 50,
+                "name": "Tea Green",
+                "quantity": 3,
+                "totalPrice": 931.17,
+                "unitPrice": 310.39
+            },
+            {
+                "menuItemId": 42,
+                "name": "Cheesecake",
+                "quantity": 3,
+                "totalPrice": 790.6200000000001,
+                "unitPrice": 263.54
+            }
+        ],
+        "status": 4,
+        "totalPrice": 2050.87
+    },
+    {
+        "clientId": 88,
+        "courierId": 12,
+        "createdAt": "2025-01-15 05:04",
+        "id": 22,
+        "items": [
+            {
+                "menuItemId": 32,
+                "name": "Ramen Pork",
+                "quantity": 1,
+                "totalPrice": 268.19,
+                "unitPrice": 268.19
+            },
+            {
+                "menuItemId": 42,
+                "name": "Cheesecake",
+                "quantity": 2,
+                "totalPrice": 527.08,
+                "unitPrice": 263.54
+            }
+        ],
+        "status": 0,
+        "totalPrice": 795.27
+    },
+    {
+        "clientId": 95,
+        "courierId": 11,
+        "createdAt": "2025-01-03 20:43",
+        "id": 23,
+        "items": [
+            {
+                "menuItemId": 40,
+                "name": "Nachos",
+                "quantity": 1,
+                "totalPrice": 390.11,
+                "unitPrice": 390.11
+            }
+        ],
+        "status": 0,
+        "totalPrice": 390.11
+    },
+    {
+        "clientId": 88,
+        "courierId": 1,
+        "createdAt": "2025-01-03 18:05",
+        "id": 24,
+        "items": [
+            {
+                "menuItemId": 34,
+                "name": "Soup Tom Yum",
+                "quantity": 2,
+                "totalPrice": 208.58,
+                "unitPrice": 104.29
+            }
+        ],
+        "status": 4,
+        "totalPrice": 208.58
+    },
+    {
+        "clientId": 57,
+        "courierId": 6,
+        "createdAt": "2025-01-04 09:38",
+        "id": 25,
+        "items": [
+            {
+                "menuItemId": 7,
+                "name": "Meat Deluxe Pizza",
+                "quantity": 3,
+                "totalPrice": 703.98,
+                "unitPrice": 234.66
+            }
+        ],
+        "status": 4,
+        "totalPrice": 703.98
+    },
+    {
+        "clientId": 32,
+        "courierId": 1,
+        "createdAt": "2025-01-14 09:27",
+        "id": 26,
+        "items": [
+            {
+                "menuItemId": 16,
+                "name": "Vegan Burger",
+                "quantity": 1,
+                "totalPrice": 143.31,
+                "unitPrice": 143.31
+            },
+            {
+                "menuItemId": 42,
+                "name": "Cheesecake",
+                "quantity": 3,
+                "totalPrice": 790.6200000000001,
+                "unitPrice": 263.54
+            },
+            {
+                "menuItemId": 26,
+                "name": "Sushi Set Classic",
+                "quantity": 3,
+                "totalPrice": 370.46999999999997,
+                "unitPrice": 123.49
+            },
+            {
+                "menuItemId": 18,
+                "name": "Onion Rings",
+                "quantity": 2,
+                "totalPrice": 259.36,
+                "unitPrice": 129.68
+            }
+        ],
+        "status": 3,
+        "totalPrice": 1563.76
+    },
+    {
+        "clientId": 73,
+        "courierId": 23,
+        "createdAt": "2025-01-26 10:25",
+        "id": 27,
+        "items": [
+            {
+                "menuItemId": 13,
+                "name": "Cheeseburger",
+                "quantity": 2,
+                "totalPrice": 755.26,
+                "unitPrice": 377.63
+            },
+            {
+                "menuItemId": 20,
+                "name": "Grilled Chicken",
+                "quantity": 3,
+                "totalPrice": 840.48,
+                "unitPrice": 280.16
+            }
+        ],
+        "status": 0,
+        "totalPrice": 1595.74
+    },
+    {
+        "clientId": 30,
+        "courierId": 21,
+        "createdAt": "2025-01-18 19:22",
+        "id": 28,
+        "items": [
+            {
+                "menuItemId": 33,
+                "name": "Ramen Spicy",
+                "quantity": 3,
+                "totalPrice": 685.26,
+                "unitPrice": 228.42
+            },
+            {
+                "menuItemId": 5,
+                "name": "BBQ Chicken Pizza",
+                "quantity": 2,
+                "totalPrice": 291.46,
+                "unitPrice": 145.73
+            },
+            {
+                "menuItemId": 25,
+                "name": "Pasta Alfredo",
+                "quantity": 2,
+                "totalPrice": 893.26,
+                "unitPrice": 446.63
+            },
+            {
+                "menuItemId": 39,
+                "name": "Quesadilla",
+                "quantity": 2,
+                "totalPrice": 185.2,
+                "unitPrice": 92.6
+            }
+        ],
+        "status": 2,
+        "totalPrice": 2055.18
+    },
+    {
+        "clientId": 69,
+        "courierId": 16,
+        "createdAt": "2025-01-18 00:15",
+        "id": 29,
+        "items": [
+            {
+                "menuItemId": 19,
+                "name": "Chicken Nuggets",
+                "quantity": 3,
+                "totalPrice": 611.28,
+                "unitPrice": 203.76
+            },
+            {
+                "menuItemId": 31,
+                "name": "Ramen Chicken",
+                "quantity": 2,
+                "totalPrice": 335.1,
+                "unitPrice": 167.55
+            },
+            {
+                "menuItemId": 1,
+                "name": "Margherita Pizza",
+                "quantity": 3,
+                "totalPrice": 313.46999999999997,
+                "unitPrice": 104.49
+            },
+            {
+                "menuItemId": 43,
+                "name": "Tiramisu",
+                "quantity": 2,
+                "totalPrice": 739.42,
+                "unitPrice": 369.71
+            }
+        ],
+        "status": 4,
+        "totalPrice": 1999.27
+    },
+    {
+        "clientId": 7,
+        "courierId": 16,
+        "createdAt": "2025-01-30 23:43",
+        "id": 30,
+        "items": [
+            {
+                "menuItemId": 30,
+                "name": "Tempura Roll",
+                "quantity": 3,
+                "totalPrice": 541.05,
+                "unitPrice": 180.35
+            },
+            {
+                "menuItemId": 29,
+                "name": "California Roll",
+                "quantity": 1,
+                "totalPrice": 424.23,
+                "unitPrice": 424.23
+            },
+            {
+                "menuItemId": 10,
+                "name": "Greek Salad",
+                "quantity": 3,
+                "totalPrice": 1276.65,
+                "unitPrice": 425.55
+            },
+            {
+                "menuItemId": 50,
+                "name": "Tea Green",
+                "quantity": 1,
+                "totalPrice": 310.39,
+                "unitPrice": 310.39
+            }
+        ],
+        "status": 2,
+        "totalPrice": 2552.32
+    },
+    {
+        "clientId": 72,
+        "courierId": 7,
+        "createdAt": "2025-01-28 07:16",
+        "id": 31,
+        "items": [
+            {
+                "menuItemId": 27,
+                "name": "Sushi Set Premium",
+                "quantity": 3,
+                "totalPrice": 305.73,
+                "unitPrice": 101.91
+            },
+            {
+                "menuItemId": 41,
+                "name": "Chocolate Cake",
+                "quantity": 3,
+                "totalPrice": 1119.72,
+                "unitPrice": 373.24
+            }
+        ],
+        "status": 1,
+        "totalPrice": 1425.45
+    },
+    {
+        "clientId": 57,
+        "courierId": 23,
+        "createdAt": "2025-01-07 13:41",
+        "id": 32,
+        "items": [
+            {
+                "menuItemId": 25,
+                "name": "Pasta Alfredo",
+                "quantity": 1,
+                "totalPrice": 446.63,
+                "unitPrice": 446.63
+            },
+            {
+                "menuItemId": 17,
+                "name": "French Fries",
+                "quantity": 2,
+                "totalPrice": 743.54,
+                "unitPrice": 371.77
+            },
+            {
+                "menuItemId": 8,
+                "name": "Seafood Pizza",
+                "quantity": 3,
+                "totalPrice": 964.71,
+                "unitPrice": 321.57
+            },
+            {
+                "menuItemId": 27,
+                "name": "Sushi Set Premium",
+                "quantity": 1,
+                "totalPrice": 101.91,
+                "unitPrice": 101.91
+            }
+        ],
+        "status": 3,
+        "totalPrice": 2256.79
+    },
+    {
+        "clientId": 29,
+        "courierId": 4,
+        "createdAt": "2025-01-25 03:16",
+        "id": 33,
+        "items": [
+            {
+                "menuItemId": 10,
+                "name": "Greek Salad",
+                "quantity": 2,
+                "totalPrice": 851.1,
+                "unitPrice": 425.55
+            },
+            {
+                "menuItemId": 4,
+                "name": "Hawaiian Pizza",
+                "quantity": 1,
+                "totalPrice": 274.71,
+                "unitPrice": 274.71
+            }
+        ],
+        "status": 1,
+        "totalPrice": 1125.81
+    },
+    {
+        "clientId": 37,
+        "courierId": 20,
+        "createdAt": "2025-01-21 08:28",
+        "id": 34,
+        "items": [
+            {
+                "menuItemId": 13,
+                "name": "Cheeseburger",
+                "quantity": 1,
+                "totalPrice": 377.63,
+                "unitPrice": 377.63
+            },
+            {
+                "menuItemId": 18,
+                "name": "Onion Rings",
+                "quantity": 2,
+                "totalPrice": 259.36,
+                "unitPrice": 129.68
+            }
+        ],
+        "status": 1,
+        "totalPrice": 636.99
+    },
+    {
+        "clientId": 14,
+        "courierId": 15,
+        "createdAt": "2025-01-09 20:14",
+        "id": 35,
+        "items": [
+            {
+                "menuItemId": 31,
+                "name": "Ramen Chicken",
+                "quantity": 1,
+                "totalPrice": 167.55,
+                "unitPrice": 167.55
+            },
+            {
+                "menuItemId": 8,
+                "name": "Seafood Pizza",
+                "quantity": 3,
+                "totalPrice": 964.71,
+                "unitPrice": 321.57
+            },
+            {
+                "menuItemId": 33,
+                "name": "Ramen Spicy",
+                "quantity": 1,
+                "totalPrice": 228.42,
+                "unitPrice": 228.42
+            }
+        ],
+        "status": 0,
+        "totalPrice": 1360.68
+    },
+    {
+        "clientId": 18,
+        "courierId": 19,
+        "createdAt": "2025-01-28 06:52",
+        "id": 36,
+        "items": [
+            {
+                "menuItemId": 6,
+                "name": "Veggie Pizza",
+                "quantity": 2,
+                "totalPrice": 369.42,
+                "unitPrice": 184.71
+            },
+            {
+                "menuItemId": 6,
+                "name": "Veggie Pizza",
+                "quantity": 3,
+                "totalPrice": 554.13,
+                "unitPrice": 184.71
+            },
+            {
+                "menuItemId": 20,
+                "name": "Grilled Chicken",
+                "quantity": 3,
+                "totalPrice": 840.48,
+                "unitPrice": 280.16
+            }
+        ],
+        "status": 0,
+        "totalPrice": 1764.03
+    },
+    {
+        "clientId": 34,
+        "courierId": 23,
+        "createdAt": "2025-01-10 04:09",
+        "id": 37,
+        "items": [
+            {
+                "menuItemId": 33,
+                "name": "Ramen Spicy",
+                "quantity": 1,
+                "totalPrice": 228.42,
+                "unitPrice": 228.42
+            },
+            {
+                "menuItemId": 9,
+                "name": "Caesar Salad",
+                "quantity": 1,
+                "totalPrice": 320.98,
+                "unitPrice": 320.98
+            },
+            {
+                "menuItemId": 43,
+                "name": "Tiramisu",
+                "quantity": 3,
+                "totalPrice": 1109.1299999999999,
+                "unitPrice": 369.71
+            },
+            {
+                "menuItemId": 8,
+                "name": "Seafood Pizza",
+                "quantity": 1,
+                "totalPrice": 321.57,
+                "unitPrice": 321.57
+            }
+        ],
+        "status": 2,
+        "totalPrice": 1980.1
+    },
+    {
+        "clientId": 11,
+        "courierId": 15,
+        "createdAt": "2025-01-15 14:05",
+        "id": 38,
+        "items": [
+            {
+                "menuItemId": 38,
+                "name": "Burrito",
+                "quantity": 2,
+                "totalPrice": 809.8,
+                "unitPrice": 404.9
+            }
+        ],
+        "status": 0,
+        "totalPrice": 809.8
+    },
+    {
+        "clientId": 12,
+        "courierId": 4,
+        "createdAt": "2025-01-01 10:34",
+        "id": 39,
+        "items": [
+            {
+                "menuItemId": 24,
+                "name": "Pasta Bolognese",
+                "quantity": 2,
+                "totalPrice": 197.14,
+                "unitPrice": 98.57
+            },
+            {
+                "menuItemId": 15,
+                "name": "Chicken Burger",
+                "quantity": 2,
+                "totalPrice": 301.16,
+                "unitPrice": 150.58
+            },
+            {
+                "menuItemId": 13,
+                "name": "Cheeseburger",
+                "quantity": 2,
+                "totalPrice": 755.26,
+                "unitPrice": 377.63
+            }
+        ],
+        "status": 0,
+        "totalPrice": 1253.56
+    },
+    {
+        "clientId": 28,
+        "courierId": 5,
+        "createdAt": "2025-01-09 23:37",
+        "id": 40,
+        "items": [
+            {
+                "menuItemId": 37,
+                "name": "Taco Chicken",
+                "quantity": 3,
+                "totalPrice": 267.21,
+                "unitPrice": 89.07
+            },
+            {
+                "menuItemId": 3,
+                "name": "Four Cheese Pizza",
+                "quantity": 3,
+                "totalPrice": 1292.85,
+                "unitPrice": 430.95
+            },
+            {
+                "menuItemId": 32,
+                "name": "Ramen Pork",
+                "quantity": 3,
+                "totalPrice": 804.5699999999999,
+                "unitPrice": 268.19
+            },
+            {
+                "menuItemId": 6,
+                "name": "Veggie Pizza",
+                "quantity": 2,
+                "totalPrice": 369.42,
+                "unitPrice": 184.71
+            }
+        ],
+        "status": 3,
+        "totalPrice": 2734.05
+    },
+    {
+        "clientId": 1,
+        "courierId": 2,
+        "createdAt": "2025-12-11 23:13:59",
+        "id": 41,
+        "items": [
+            {
+                "menuItemId": 1,
+                "name": "Margherita Pizza",
+                "quantity": 2,
+                "totalPrice": 208.98,
+                "unitPrice": 104.49
+            }
+        ],
+        "status": 4,
+        "totalPrice": 208.98
+    }
 ]
